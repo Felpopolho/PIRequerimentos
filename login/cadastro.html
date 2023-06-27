@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastre-se!</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 </head>
 <body>
     Crie uma nova conta:
@@ -13,9 +19,9 @@
         Email: <input type="text" name="email"><br>
 
         Curso: <br>
-        <input type="radio" name="curso" value="ei"> <label>Informática</label> <br>
-        <input type="radio" name="curso" value="ed"> <label>Edificações</label> <br>
-        <input type="radio" name="curso" value="ema"> <label>Meio Ambiente</label> <br>
+        <input type="radio" name="curso" id="ei" value="ei"> <label for="ei">Informática</label> <br>
+        <input type="radio" name="curso" id="ed" value="ed"> <label for="ed">Edificações</label> <br>
+        <input type="radio" name="curso" id="ema" value="ema"> <label for="ema">Meio Ambiente</label> <br>
 
         Turma:
         <select name="turma">
@@ -51,12 +57,14 @@
             </optgroup>
         </select><br>
 
-        Telefone: <input type="text" name="telefone"><br>
+        Telefone: <input type="text" name="telefone" minlength="10" maxlength="12" onkeypress="$(this).mask('(00) 00000-0000')"><br>
         Senha: <input type="password" name="senha"><br>
         Repita a senha: <input type="password" name="senha2"><br>
 
         <input type="submit" name="botaoCadastro" value="Criar conta">
     </form>
+
+    <a href="login.html">Já tem uma conta? Faça login.</a>
     
 </body>
 </html>

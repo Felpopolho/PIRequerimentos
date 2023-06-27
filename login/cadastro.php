@@ -4,7 +4,7 @@
 
     $cadastrado = False;
 
-    $consulta = "SELECT * FROM `user` WHERE `email` = '$email'";
+    $consulta = "SELECT * FROM `aluno` WHERE `email` = '$email'";
             $result = banco($server, $user, $password, $db, $consulta);
             
             while ($linha = $result->fetch_assoc()){
@@ -22,7 +22,7 @@
                 }elseif($senha != $senha2){
                     echo "As senhas não conferem";
                     }else{
-                        $consulta = "INSERT INTO `user`(`matricula`, `nome`, `email`, `curso`, `turma`, `telefone`, `senha`) VALUES ('$matricula','$nome','$email', '$curso', '$turma', '$telefone', '$senha')";
+                        $consulta = "INSERT INTO `aluno`(`matricula`, `nome`, `email`, `curso`, `turma`, `telefone`, `senha`) VALUES ('$matricula','$nome','$email', '$curso', '$turma', '$telefone', '$senha')";
                         banco($server, $user, $password, $db, $consulta);
                         header('Location: cadastro.html');
                     }   
