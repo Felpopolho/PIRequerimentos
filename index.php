@@ -9,21 +9,23 @@
     <?php
         include "const.php";
 
-        $consulta = "select count(*) as total from adm/cores";
+        $consulta = "select count(senha) as total from `sisadmin`";
         $result = banco($server, $user, $password, $db, $consulta);
         $row = mysqli_fetch_assoc($result);
         
         if($row['total'] != 0) {
-            header('Location: login.php');
+            header('Location: login/login.html');
             exit;
         }
     ?>
 
     Crie o usuário administrador de sistema.
 
-    <form action="signSisAdminIn.php" method="post">
+    <form action="signMasterIn.php" method="post">
         <input type="text" name="usuario">
         <input type="text" name="senha">
+        
+        <input type="submit" name="botaoCadastro">
     </form>
 
 </body>
