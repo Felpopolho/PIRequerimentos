@@ -7,15 +7,21 @@
 </head>
 <body>
     <?php
+        session_start();
         include "const.php";
 
-        $consulta = "select count(senha) as total from `sisadmin`";
+        $consulta = "SELECT COUNT(senha) AS total FROM `sisadmin`";
         $result = banco($server, $user, $password, $db, $consulta);
         $row = mysqli_fetch_assoc($result);
         
         if($row['total'] != 0) {
-            header('Location: login/login.html');
+            header('Location: login/login.php');
             exit;
+        }
+
+        if(isset($_SESSION['msgIndex'])){
+            echo $_SESSION['msgIndex'];
+            unset($_SESSION['msgIndex']);
         }
     ?>
 
@@ -27,6 +33,5 @@
         
         <input type="submit" name="botaoCadastro">
     </form>
-
 </body>
 </html>
