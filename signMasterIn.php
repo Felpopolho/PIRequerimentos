@@ -19,7 +19,7 @@
         $_SESSION['msgIndex'] = "Informe a senha.</br>";
 
     }else{
-
+        $senha = password_hash($senha, PASSWORD_DEFAULT);
         $consulta = "INSERT INTO `sisadmin`(`idMaster`, `senha`) VALUES ('$usuario','$senha')";
         banco($server, $user, $password, $db, $consulta);
         header('Location: index.php');

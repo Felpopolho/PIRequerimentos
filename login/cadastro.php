@@ -37,22 +37,28 @@
 
             }elseif($senha != $senha2){
 
-            $_SESSION['msgCadastro'] = "As senhas não conferem<br/>";
+            $_SESSION['msgCadastro'] = "As senhas não conferem.<br/>";
 
             }else{
+                $senha = password_hash($senha, PASSWORD_DEFAULT);
 
-            $consulta = "INSERT INTO `aluno`(`matricula`, `nome`, `email`, `curso`, `turma`, `telefone`, `senha`) VALUES ('$matricula','$nome','$email', '$curso', '$turma', '$telefone', '$senha')";
-            banco($server, $user, $password, $db, $consulta);
-            header('Location: cadastro.php');
-
+                $consulta = "INSERT INTO `aluno`(`matricula`, `nome`, `email`, `curso`, `turma`, `telefone`, `senha`) VALUES ('$matricula','$nome','$email', '$curso', '$turma', '$telefone', '$senha')";
+                banco($server, $user, $password, $db, $consulta);
+                $_SESSION['msgCadastro'] = "Cadastro realizado com sucesso.<br/>";
             }   
         }
-
-        if (isset($_SESSION['msgCadastro'])){
-            echo $_SESSION['msgCadastro'];
-            unset($_SESSION['msgCadastro']);
-        }
     ?>
+
+    <div class="msgCadastro">
+
+        <?php
+            if (isset($_SESSION['msgCadastro'])){
+                echo $_SESSION['msgCadastro'];
+                unset($_SESSION['msgCadastro']);
+            }
+        ?>
+
+    </div>
 
     Crie uma nova conta:
     <form action="cadastro.php" method="post">

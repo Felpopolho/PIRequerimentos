@@ -16,56 +16,65 @@
             if (empty($usuario) or empty($userSenha)){
 
                 $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
-    
+                
             }else{
                 switch (strlen($usuario)){
                     case (5);
-                            $consulta = "SELECT `idMaster`, `userSenha` FROM `sisadmin` WHERE idMaster='$usuario'";
-                            $result = banco($server, $user, $password, $db, $consulta);
-                    
-                            while ($linha = $result->fetch_assoc()){
-                                if ($linha['idMaster'] == $usuario){
-                                    if($linha['userSenha'] == $userSenha){
-                                        header('Location: menuMaster.php');
-                                    }
-                                }
+                        $consulta = "SELECT `idMaster`, `senha` FROM `sisadmin` WHERE idMaster='$usuario'";
+                        $result = banco($server, $user, $password, $db, $consulta);
+                        $linha = $result->fetch_assoc();
+                        extract($linha);
+
+                        if ($idMaster == $usuario){
+                            if(password_verify($userSenha, $senha)){
+                                echo "Funfou";
+                                header('Location: menuMaster.php');
+                            }else{
+                                header('Location: login.php');
+                            }
+                        }else{
+                            echo "nem achou o usuario";
+                            header('Location: login.php');
                         }
     
                     case (7);
-                            $consulta = "SELECT `SIAPE`, `userSenha` FROM `adm/cores` WHERE SIAPE='$usuario'";
-                            $result = banco($server, $user, $password, $db, $consulta);
-                    
-                            while ($linha = $result->fetch_assoc()){
-                                if ($linha['SIAPE'] == $usuario){
-                                    if($linha['userSenha'] == $userSenha){
-                                        if($linha['coord'] == 'cores'){
-                                            header('Location: menuCores.php');
-                                        }else{
-                                            header('Location: menuAdm.php');
-                                        }
-                                    }
-                                }
+                        $consulta = "SELECT `SIAPE`, `senha` FROM `adm/cores` WHERE SIAPE='$usuario'";
+                        $result = banco($server, $user, $password, $db, $consulta);
+                        $linha = $result->fetch_assoc();
+                        extract($linha);
+
+                        if ($SIAPE == $usuario){
+                            if(password_verify($userSenha, $senha)){
+                                header('Location: menuAdm.php');
+                            }else{
+                                header('Location: login.php');
+                            }
+                        }else{
+                            header('Location: login.php');
                         }
     
                     case (12);
-                            $consulta = "SELECT `matricula`, `senha` FROM `aluno` WHERE matricula='$usuario'";
-                            $result = banco($server, $user, $password, $db, $consulta);
-                            $linha = $result->fetch_assoc();
-                            extract($linha);
-    
-                            if ($matricula == $usuario){
-                                if($senha == $userSenha){
-                                    header('Location: menuUser.php');
-                                }else{
-                                    header('Location: login.php');
-                                }
+                        $consulta = "SELECT `matricula`, `senha` FROM `aluno` WHERE matricula='$usuario'";
+                        $result = banco($server, $user, $password, $db, $consulta);
+                        $linha = $result->fetch_assoc();
+                        extract($linha);
+
+                        if ($matricula == $usuario){
+                            if(password_verify($userSenha, $senha)){
+                                header('Location: menuUser.php');
                             }else{
                                 header('Location: login.php');
+                            }
+                        }else{
+                            header('Location: login.php');
                         }
                 }
             }
         }
 
+    ?>
+
+    <?php
         if (isset($_SESSION['msgLogin'])){
             echo $_SESSION['msgLogin'];
             unset($_SESSION['msgLogin']);
@@ -75,7 +84,7 @@
     Faça login!
     <form action="login.php" method="post">
         <input type="text" name="usuario">
-        <input type="text" name="userSenha">
+        <input type="password" name="userSenha">
         
         <input type="submit" name="botaoLogin">
     </form>

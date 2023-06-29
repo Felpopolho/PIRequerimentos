@@ -18,18 +18,22 @@
             header('Location: login/login.php');
             exit;
         }
-
-        if(isset($_SESSION['msgIndex'])){
-            echo $_SESSION['msgIndex'];
-            unset($_SESSION['msgIndex']);
-        }
     ?>
+
+    <div class="msgIndex">
+        <?php
+            if(isset($_SESSION['msgIndex'])){
+                echo $_SESSION['msgIndex'];
+                unset($_SESSION['msgIndex']);
+            }
+        ?>
+    </div>
 
     Crie o usuário administrador de sistema.
 
     <form action="signMasterIn.php" method="post">
         <input type="text" name="usuario">
-        <input type="text" name="senha">
+        <input type="password" name="senha">
         
         <input type="submit" name="botaoCadastro">
     </form>
