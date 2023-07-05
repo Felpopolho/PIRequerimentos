@@ -11,6 +11,14 @@
         extract($_POST);
         include "/xampp/htdocs/pirequerimentos-git/PIRequerimentos/const.php";
 
+        if (isset($_SESSION['idMaster'])){
+            header('Location: masterLogin.php');
+        }elseif (isset($_SESSION['SIAPE'])){
+            header('Location: coordLogin.php');
+        }elseif (isset($_SESSION['matricula'])){
+            header('Location: alunoLogin.php');
+        }
+
         if (isset($botaoLogin)){
 
             if (empty($usuario) or empty($userSenha)){
@@ -20,54 +28,56 @@
             }else{
                 switch (strlen($usuario)){
                     case (5);
-                        $consulta = "SELECT `idMaster`, `senha` FROM `sisadmin` WHERE idMaster='$usuario'";
+                        $consulta = "SELECT `idMaster`, `senha` FROM `sisadmin` WHERE idMaster='$usuario' LIMIT 1";
                         $result = banco($server, $user, $password, $db, $consulta);
-                        $linha = $result->fetch_assoc();
-                        extract($linha);
 
-                        if ($idMaster == $usuario){
+                        if ($result->num_rows > 0){
+                            $linha = $result->fetch_assoc();
+                            extract($linha);
                             if(password_verify($userSenha, $senha)){
-                                echo "Funfou";
-                                header('Location: menuMaster.php');
+                                $_SESSION['idMaster'] = $idMaster;	
                             }else{
-                                header('Location: login.php');
+                                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                             }
                         }else{
-                            echo "nem achou o usuario";
-                            header('Location: login.php');
+                            $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                         }
+                        
     
                     case (7);
-                        $consulta = "SELECT `SIAPE`, `senha` FROM `adm/cores` WHERE SIAPE='$usuario'";
+                        $consulta = "SELECT `SIAPE`, `senha` FROM `adm/cores` WHERE SIAPE='$usuario' LIMIT 1";
                         $result = banco($server, $user, $password, $db, $consulta);
-                        $linha = $result->fetch_assoc();
-                        extract($linha);
 
-                        if ($SIAPE == $usuario){
+                        if ($result->num_rows > 0){
+                            $linha = $result->fetch_assoc();
+                            extract($linha);
                             if(password_verify($userSenha, $senha)){
-                                header('Location: menuAdm.php');
+                                $_SESSION['SIAPE'] = $SIAPE;	
                             }else{
-                                header('Location: login.php');
+                                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                             }
                         }else{
-                            header('Location: login.php');
+                            $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                         }
     
                     case (12);
-                        $consulta = "SELECT `matricula`, `senha` FROM `aluno` WHERE matricula='$usuario'";
+                        $consulta = "SELECT `matricula`, `senha` FROM `aluno` WHERE matricula='$usuario' LIMIT 1";
                         $result = banco($server, $user, $password, $db, $consulta);
-                        $linha = $result->fetch_assoc();
-                        extract($linha);
 
-                        if ($matricula == $usuario){
+                        if ($result->num_rows > 0){
+                            $linha = $result->fetch_assoc();
+                            extract($linha);
                             if(password_verify($userSenha, $senha)){
-                                header('Location: menuUser.php');
+                                $_SESSION['matricula'] = $matricula;	
                             }else{
-                                header('Location: login.php');
+                                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                             }
                         }else{
-                            header('Location: login.php');
+                            $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                         }
+                    
+                    default;
+                        $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                 }
             }
         }
