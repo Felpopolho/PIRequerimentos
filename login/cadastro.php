@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 </head>
 <body>
+
     <?php
         session_start();
         extract($_POST);
@@ -49,60 +50,42 @@
         }
     ?>
 
-    <div class="msgCadastro">
-
+    <div>
         <?php
-            if (isset($_SESSION['msgCadastro'])){
-                echo $_SESSION['msgCadastro'];
-                unset($_SESSION['msgCadastro']);
-            }
-        ?>
+        
+        if (isset($_SESSION['msgCadastro'])){
+            echo $_SESSION['msgCadastro'];
+            unset($_SESSION['msgCadastro']);
+        }
 
+        ?>
     </div>
 
     Crie uma nova conta:
+
     <form action="cadastro.php" method="post">
+
         Matrícula: <input type="text" name="matricula"><br>
         Nome completo: <input type="text" name="nome"><br>
         Email: <input type="text" name="email"><br>
 
         Curso: <br>
-        <input type="radio" name="curso" id="ei" value="ei"> <label for="ei">Informática</label> <br>
-        <input type="radio" name="curso" id="ed" value="ed"> <label for="ed">Edificações</label> <br>
-        <input type="radio" name="curso" id="ema" value="ema"> <label for="ema">Meio Ambiente</label> <br>
+        <input type="radio" name="curso" id="ei" value="ei" onchange="MudarTurma()"> <label for="ei">Informática</label> <br>
+        <input type="radio" name="curso" id="ed" value="ed" onchange="MudarTurma()"> <label for="ed">Edificações</label> <br>
+        <input type="radio" name="curso" id="ema" value="ema" onchange="MudarTurma()"> <label for="ema">Meio Ambiente</label> <br>
 
         Turma:
         <select name="turma">
             <option value="">--Selecione a sua turma.--</option>
-            <optgroup label="Informática">
-                <option value="EI11">EI11</option>
-                <option value="EI12">EI12</option>
-                <option value="EI21">EI21</option>
-                <option value="EI22">EI22</option>
-                <option value="EI31">EI31</option>
-                <option value="EI32">EI32</option>
-                <option value="EI41">EI41</option>
-            </optgroup>
+            
+                <option id="x11" value="x11">11</option>
+                <option id="x12" value="x12">12</option>
+                <option id="x21" value="x21">21</option>
+                <option id="x22" value="x22">22</option>
+                <option id="x31" value="x31">31</option>
+                <option id="x32" value="x32">32</option>
+                <option id="x41" value="x41">41</option>
 
-            <optgroup label="Edificações">
-                <option value="ED11">ED11</option>
-                <option value="ED12">ED12</option>
-                <option value="ED21">ED21</option>
-                <option value="ED22">ED22</option>
-                <option value="ED31">ED31</option>
-                <option value="ED32">ED32</option>
-                <option value="ED41">ED41</option>
-            </optgroup>
-
-            <optgroup label="Meio Ambiente">
-                <option value="EMA11">EMA11</option>
-                <option value="EMA12">EMA12</option>
-                <option value="EMA21">EMA21</option>
-                <option value="EMA22">EMA22</option>
-                <option value="EMA31">EMA31</option>
-                <option value="EMA32">EMA32</option>
-                <option value="EMA41">EMA41</option>
-            </optgroup>
         </select><br>
 
         Telefone: <input type="text" name="telefone" minlength="10" maxlength="12" onkeypress="$(this).mask('(00) 00000-0000')"><br>
@@ -114,5 +97,70 @@
 
     <a href="login.php">Já tem uma conta? Faça login.</a>
     
+    <script>
+        function MudarTurma(){
+            var isEi = document.getElementById("ei");
+            var isEd = document.getElementById("ed");
+            var isEma = document.getElementById("ema");
+
+            var x11 = document.getElementById("x11");
+            var x12 = document.getElementById("x12");
+            var x21 = document.getElementById("x21");
+            var x22 = document.getElementById("x22");
+            var x31 = document.getElementById("x31");
+            var x32 = document.getElementById("x32");
+            var x41 = document.getElementById("x41");
+
+            if(isEi.checked == true){
+                x11.innerHTML = "EI-11";
+                x12.innerHTML = "EI-12";
+                x21.innerHTML = "EI-21";
+                x22.innerHTML = "EI-22";
+                x31.innerHTML = "EI-31";
+                x32.innerHTML = "EI-32";
+                x41.innerHTML = "EI-41";
+
+                x11.value = "EI11";
+                x12.value = "EI12";
+                x21.value = "EI21";
+                x22.value = "EI22";
+                x31.value = "EI31";
+                x32.value = "EI32";
+                x41.value = "EI41";
+            }else if(isEd.checked == true){
+                x11.innerHTML = "ED-11";
+                x12.innerHTML = "ED-12";
+                x21.innerHTML = "ED-21";
+                x22.innerHTML = "ED-22";
+                x31.innerHTML = "ED-31";
+                x32.innerHTML = "ED-32";
+                x41.innerHTML = "ED-41";
+
+                x11.value = "ED11";
+                x12.value = "ED12";
+                x21.value = "ED21";
+                x22.value = "ED22";
+                x31.value = "ED31";
+                x32.value = "ED32";
+                x41.value = "ED41";
+            }else if(isEma.checked == true){
+                x11.innerHTML = "EMA-11";
+                x12.innerHTML = "EMA-12";
+                x21.innerHTML = "EMA-21";
+                x22.innerHTML = "EMA-22";
+                x31.innerHTML = "EMA-31";
+                x32.innerHTML = "EMA-32";
+                x41.innerHTML = "EMA-41";
+
+                x11.value = "EMA11";
+                x12.value = "EMA12";
+                x21.value = "EMA21";
+                x22.value = "EMA22";
+                x31.value = "EMA31";
+                x32.value = "EMA32";
+                x41.value = "EMA41";
+            }
+        }
+    </script>
 </body>
 </html>
