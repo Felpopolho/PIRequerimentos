@@ -36,12 +36,14 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['idMaster'] = $idMaster;	
+                                header('Location: masterLogin.php');
                             }else{
                                 $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                             }
                         }else{
                             $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                         }
+                        break;
                         
     
                     case (7);
@@ -53,12 +55,14 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['SIAPE'] = $SIAPE;	
+                                header('Location: coordLogin.php');
                             }else{
                                 $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                             }
                         }else{
                             $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                         }
+                        break;
     
                     case (12);
                         $consulta = "SELECT `matricula`, `senha` FROM `aluno` WHERE matricula='$usuario' LIMIT 1";
@@ -69,15 +73,18 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['matricula'] = $matricula;	
+                                header('Location: alunoLogin.php');
                             }else{
                                 $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                             }
                         }else{
                             $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
                         }
+                        break;
                     
                     default;
                         $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                        break;
                 }
             }
         }
