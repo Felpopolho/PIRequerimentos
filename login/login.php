@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleLoginPage.css">
     <title>Faça login!</title>
 </head>
 <body>
@@ -90,22 +91,28 @@
         }
 
     ?>
+    <div class='container'>
+        <div class="msg">
+            <?php
+                if (isset($_SESSION['msgLogin'])){
+                    echo $_SESSION['msgLogin'];
+                    unset($_SESSION['msgLogin']);
+                }
+            ?>
+        </div>
 
-    <?php
-        if (isset($_SESSION['msgLogin'])){
-            echo $_SESSION['msgLogin'];
-            unset($_SESSION['msgLogin']);
-        }
-    ?>
+        Faça login!
+        <form action="login.php" method="post">
+            <input type="text" name="usuario" class="input" placeholder="Usuário">
+            <input type="password" name="userSenha" class="input" placeholder="Senha">
+            
+            <input type="submit" name="botaoLogin">
+        </form>
 
-    Faça login!
-    <form action="login.php" method="post">
-        <input type="text" name="usuario">
-        <input type="password" name="userSenha">
-        
-        <input type="submit" name="botaoLogin">
-    </form>
-
-    <a href="cadastro.php">Ainda não tem uma conta? Cadastre-se.</a>
+        <p>
+            Ainda não tem uma conta?
+            <a href="cadastro.php">Cadastre-se.</a>
+        </p>
+    </div>
 </body>
 </html>
