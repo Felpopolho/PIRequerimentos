@@ -68,6 +68,10 @@ input[type="submit"]{
     line-height: normal;
 }
 
+input[type="submit"]:hover{
+    cursor: pointer;
+}
+
 form input::placeholder{
     color: #464646;
     font-family: Sora;
@@ -75,6 +79,11 @@ form input::placeholder{
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+}
+
+p{
+    margin-top: 25px;
+    margin-bottom: 0px;
 }
 
 .container a{

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleLoginPage.css">
+    <link rel="stylesheet" href="styleLogin.css">
     <title>Faça login!</title>
 </head>
 <body>
@@ -92,7 +92,9 @@
 
     ?>
     <div class='container'>
-        <div class="msg">
+        Faça login!
+
+        <div class="error-msg">
             <?php
                 if (isset($_SESSION['msgLogin'])){
                     echo $_SESSION['msgLogin'];
@@ -100,13 +102,12 @@
                 }
             ?>
         </div>
-
-        Faça login!
+        
         <form action="login.php" method="post">
             <input type="text" name="usuario" class="input" placeholder="Usuário">
             <input type="password" name="userSenha" class="input" placeholder="Senha">
             
-            <input type="submit" name="botaoLogin">
+            <input type="submit" name="botaoLogin" value="Login">
         </form>
 
         <p>
