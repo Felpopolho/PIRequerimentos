@@ -64,7 +64,7 @@
 
     <div class="container">
 
-    Crie uma nova conta:
+    <h1>Crie uma nova conta:</h1>
 
     <form action="cadastro.php" method="post">
 
