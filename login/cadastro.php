@@ -64,47 +64,47 @@
 
     <div class="container">
 
-    Crie uma nova conta:
+        Crie uma nova conta:
+        
+        <form action="cadastro.php" method="post">
 
-    <form action="cadastro.php" method="post">
+            Matrícula: <input type="text" name="matricula" class="input"><br>
+            Nome completo: <input type="text" name="nome" class="input"><br>
+            Email: <input type="text" name="email" class="input"><br>
 
-        Matrícula: <input type="text" name="matricula" class="input"><br>
-        Nome completo: <input type="text" name="nome" class="input"><br>
-        Email: <input type="text" name="email" class="input"><br>
+            Curso: <br>
+            <div class="input-curso">
+                <input type="radio" name="curso" id="ei" value="ei" onchange="MudarTurma()"> <label for="ei">Informática</label> <br>
+                <input type="radio" name="curso" id="ed" value="ed" onchange="MudarTurma()"> <label for="ed">Edificações</label> <br>
+                <input type="radio" name="curso" id="ema" value="ema" onchange="MudarTurma()"> <label for="ema">Meio Ambiente</label> <br>
+            </div>
 
-        Curso: <br>
-        <div class="input-curso">
-            <input type="radio" name="curso" id="ei" value="ei" onchange="MudarTurma()"> <label for="ei">Informática</label> <br>
-            <input type="radio" name="curso" id="ed" value="ed" onchange="MudarTurma()"> <label for="ed">Edificações</label> <br>
-            <input type="radio" name="curso" id="ema" value="ema" onchange="MudarTurma()"> <label for="ema">Meio Ambiente</label> <br>
-        </div>
+            Turma:
+                <select name="turma">
+                    <option value="">--Selecione a sua turma.--</option>
+                    
+                        <option id="x11" value="x11">11</option>
+                        <option id="x12" value="x12">12</option>
+                        <option id="x21" value="x21">21</option>
+                        <option id="x22" value="x22">22</option>
+                        <option id="x31" value="x31">31</option>
+                        <option id="x32" value="x32">32</option>
+                        <option id="x41" value="x41">41</option>
 
-        Turma:
-            <select name="turma">
-                <option value="">--Selecione a sua turma.--</option>
+                </select><br>
                 
-                    <option id="x11" value="x11">11</option>
-                    <option id="x12" value="x12">12</option>
-                    <option id="x21" value="x21">21</option>
-                    <option id="x22" value="x22">22</option>
-                    <option id="x31" value="x31">31</option>
-                    <option id="x32" value="x32">32</option>
-                    <option id="x41" value="x41">41</option>
+            Telefone: <input type="text" name="telefone" class="input" minlength="10" maxlength="12" onkeypress="$(this).mask('(00) 00000-0000')"><br>
 
-            </select><br>
-            
-        Telefone: <input type="text" name="telefone" class="input" minlength="10" maxlength="12" onkeypress="$(this).mask('(00) 00000-0000')"><br>
+            Senha: <input type="password" name="senha" class="input"><br>
+            Repita a senha: <input type="password" name="senha2" class="input"><br>
 
-        Senha: <input type="password" name="senha" class="input"><br>
-        Repita a senha: <input type="password" name="senha2" class="input"><br>
+            <input type="submit" name="botaoCadastro" value="Criar conta">
+        </form>
 
-        <input type="submit" name="botaoCadastro" value="Criar conta">
-    </form>
-
-    <p>
-        Já tem uma conta? 
-        <a href="login.php">Faça login.</a>
-    </p>
+        <p>
+            Já tem uma conta? 
+            <a href="login.php">Faça login.</a>
+        </p>
     </div>
 
     <script>
