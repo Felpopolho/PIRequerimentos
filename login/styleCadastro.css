@@ -34,16 +34,17 @@ form{
 
     
 }
+
 .input{
-    width: 500px;
-    height: 50px;
+    width: 300px;
+    height: 30px;
     padding-left: 10px;
     padding-right: 10px;
     flex-shrink: 0;
     margin-bottom: 2%;
     outline: 0;
     border: 0px;
-    border-radius: 15px;
+    border-radius: 10px;
     background: #D2D1D1;
     font-family: Sora;
     font-size: 15px;
