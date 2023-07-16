@@ -87,13 +87,13 @@
             <select name="turma">
                 <option value="">--Selecione a sua turma.--</option>
                     
-                    <option id="x11" value="x11">11</option>
-                    <option id="x12" value="x12">12</option>
-                    <option id="x21" value="x21">21</option>
-                    <option id="x22" value="x22">22</option>
-                    <option id="x31" value="x31">31</option>
-                    <option id="x32" value="x32">32</option>
-                    <option id="x41" value="x41">41</option>
+                    <option id="x11" value=""></option>
+                    <option id="x12" value=""></option>
+                    <option id="x21" value=""></option>
+                    <option id="x22" value=""></option>
+                    <option id="x31" value=""></option>
+                    <option id="x32" value=""></option>
+                    <option id="x41" value=""></option>
 
                 </select>
                 <br>
@@ -111,7 +111,7 @@
             </p>
         </form>
     </div>
-
+     
     <script>
         function MudarTurma(){
             var isEi = document.getElementById("ei");
