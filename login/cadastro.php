@@ -73,7 +73,7 @@
         Email: <input type="text" name="email" class="input"><br>
 
         Curso: <br>
-        <div class="input">
+        <div class="input-curso">
             <input type="radio" name="curso" id="ei" value="ei" onchange="MudarTurma()"> <label for="ei">Informática</label> <br>
             <input type="radio" name="curso" id="ed" value="ed" onchange="MudarTurma()"> <label for="ed">Edificações</label> <br>
             <input type="radio" name="curso" id="ema" value="ema" onchange="MudarTurma()"> <label for="ema">Meio Ambiente</label> <br>
