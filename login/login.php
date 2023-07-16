@@ -92,7 +92,7 @@
 
     ?>
     <div class='container'>
-        Faça login!
+        <h1>Faça login!</h1><br>
 
         <div class="error-msg">
             <?php

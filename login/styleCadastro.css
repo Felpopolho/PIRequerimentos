@@ -11,21 +11,48 @@ body{
     font-family: 'Sora', sans-serif;
 }
 
-.container{
-    
-    width: 768.375px;
-    height: 600px;
+.container {
+    width: 600px;
     max-width: 1200px;
-    display: flex;
     flex-shrink: 0;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     border-radius: 10px;
     background: #F4F4F4;
     box-shadow: 0px 6px 5px 4px rgba(0, 0, 0, 0.25);
+    overflow: auto;
+    max-height: 500px;
+  }
+
+form{
+    width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+/*.container{
+    
+    width: 768.375px;
+    max-width: 1200px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background: #F4F4F4;
+    box-shadow: 0px 6px 5px 4px rgba(0, 0, 0, 0.25);
+    overflow: auto;
+    max-height: 600px;
     
 }
+*/
 
 form{
     max-height: 1200px;
@@ -33,10 +60,11 @@ form{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: auto;
-
+    gap: 10px;
     
+
 }
+*/
 
 .input{
     width: 300px;
@@ -55,20 +83,20 @@ form{
 
 input[type="submit"]{
     display: flex;
-    width: 400px;
-    height: 45px;
+    width: 320px;
+    height: 35px;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
     border-radius: 40px;
     border: 0px;
-    background: linear-gradient(180deg, #5C606A 20.33%, #8d97a3 62.07%);
+    background: linear-gradient(180deg, #5C606A 20%, #8c939c 65%);
     box-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.25);
     color: #FFF;
     text-align: center;
     font-family: Sora;
-    font-size: 30px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -81,7 +109,7 @@ input[type="submit"]:hover{
 form input::placeholder{
     color: #464646;
     font-family: Sora;
-    font-size: 20px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -89,7 +117,7 @@ form input::placeholder{
 
 p{
     margin-top: 25px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 
 .container a{
@@ -112,5 +140,9 @@ p{
     background: #D2D1D1;
     font-family: Sora;
     font-size: 15px;
+    color: #464646;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
     
 }
