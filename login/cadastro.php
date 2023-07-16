@@ -99,6 +99,8 @@
             <input type="password" name="senha" class="input" placeholder="Senha"><br>
             <input type="password" name="senha2" class="input" placeholder="Repita a senha"><br>
 
+            <input type="submit" name="botaoCadastro" value="Criar conta">
+
             <p>
                 Já tem uma conta? 
                 <a href="login.php">Faça login.</a>
