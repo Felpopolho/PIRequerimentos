@@ -13,7 +13,7 @@ body{
 
 .container{
     width: 768.375px;
-    height: 600px;
+    height: 550px;
     max-width: 1200px;
     display: flex;
     flex-shrink: 0;
