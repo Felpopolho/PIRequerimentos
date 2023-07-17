@@ -40,7 +40,6 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['idMaster'] = $idMaster;	
-                                header('Location: masterLogin.php');
                             }else{
                                 $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
@@ -59,7 +58,6 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['SIAPE'] = $SIAPE;	
-                                header('Location: coordLogin.php');
                             }else{
                                 $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
@@ -77,7 +75,6 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['matricula'] = $matricula;	
-                                header('Location: alunoLogin.php');
                             }else{
                                 $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
@@ -91,6 +88,7 @@
                         break;
                 }
             }
+            header('Location: login.php');
         }
 
     ?>
