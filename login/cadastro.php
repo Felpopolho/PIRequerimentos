@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 </head>
 <body>
+    
 
     <?php
         session_start();
@@ -63,7 +64,7 @@
     </div>
 
     <div class="container">
-
+        
     <h1>Crie uma nova conta:</h1>
 
         <form action="cadastro.php" method="post">
@@ -80,18 +81,20 @@
             </div>
                 
             <br>
-            <select name="turma">
-                <option value="">--Selecione a sua turma.--</option>
-                    
-                    <option id="x11" value=""></option>
-                    <option id="x12" value=""></option>
-                    <option id="x21" value=""></option>
-                    <option id="x22" value=""></option>
-                    <option id="x31" value=""></option>
-                    <option id="x32" value=""></option>
-                    <option id="x41" value=""></option>
+    <select name="turma" >
 
-                </select>
+<option id="x11" value="x11">11</option>
+<option id="x12" value="x12">12</option>
+<option id="x21" value="x21">21</option>
+<option id="x22" value="x22">22</option>
+<option id="x31" value="x31">31</option>
+<option id="x32" value="x32">32</option>
+<option id="x41" value="x41">41</option>
+</select>
+    
+                
+    
+    
                 <br>
                 
             <input type="text" name="telefone" class="input" placeholder="Telefone" minlength="10" maxlength="12" onkeypress="$(this).mask('(00) 00000-0000')"><br>

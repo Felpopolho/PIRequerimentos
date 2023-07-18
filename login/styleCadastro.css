@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;500;600;700;800&display=swap');
 
-body{
+body{ 
+    
     width: 100%;
     height: 100vh;
     margin: 0;
@@ -12,6 +13,8 @@ body{
 }
 
 .container {
+    
+    
     width: 600px;
     max-width: 1200px;
     flex-shrink: 0;
@@ -118,4 +121,8 @@ p{
     font-weight: 300;
     line-height: normal;
     
+}
+
+select[name="turma"]opyion{
+    background-color: #464646;
 }
