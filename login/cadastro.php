@@ -58,15 +58,15 @@
 
     <div class="container">
         
-    <h1>Crie uma nova conta:</h1>
+        <h1>Crie uma nova conta:</h1><br>
 
         <div class="error-msg">
             <?php
             
-            if (isset($_SESSION['msgCadastro'])){
+                if (isset($_SESSION['msgCadastro'])){
                 echo $_SESSION['msgCadastro'];
                 unset($_SESSION['msgCadastro']);
-            }
+                }
 
             ?>
         </div>
@@ -82,24 +82,22 @@
                 <input type="radio" name="curso" id="ei" value="ei" onchange="MudarTurma()"> <label for="ei">Informática</label> <br>
                 <input type="radio" name="curso" id="ed" value="ed" onchange="MudarTurma()"> <label for="ed">Edificações</label> <br>
                 <input type="radio" name="curso" id="ema" value="ema" onchange="MudarTurma()"> <label for="ema">Meio Ambiente</label> <br>
-            </div>
+            </div> 
                 
             <br>
-    <select name="turma" >
+            
+             Turma: <br>
+            <select name="turma" >
+                <option id="x11" value="x11">11</option>
+                <option id="x12" value="x12">12</option>
+                <option id="x21" value="x21">21</option>
+                <option id="x22" value="x22">22</option>
+                <option id="x31" value="x31">31</option>
+                <option id="x32" value="x32">32</option>
+                <option id="x41" value="x41">41</option>
+            </select>
 
-<option id="x11" value="x11">11</option>
-<option id="x12" value="x12">12</option>
-<option id="x21" value="x21">21</option>
-<option id="x22" value="x22">22</option>
-<option id="x31" value="x31">31</option>
-<option id="x32" value="x32">32</option>
-<option id="x41" value="x41">41</option>
-</select>
-    
-                
-    
-    
-                <br>
+            <br>
                 
             <input type="text" name="telefone" class="input" placeholder="Telefone" minlength="10" maxlength="12" onkeypress="$(this).mask('(00) 00000-0000')"><br>
 

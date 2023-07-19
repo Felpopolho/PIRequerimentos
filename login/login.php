@@ -94,7 +94,8 @@
     ?>
     <div class='container'>
 
-        <h1>Faça login!</h1><br>
+        <img src="logo.png">
+        <br>
 
         <div class="error-msg">
             <?php
