@@ -2,9 +2,12 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA_Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleCadastroPage.css">
+
     <title>Cadastre-se!</title>
-    <link rel="stylesheet" href="styleCadastro.css">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
@@ -32,40 +35,41 @@
 
             if(strlen($matricula)!=12){
 
-            $_SESSION['msgCadastro'] = "Número de matrícula incorreto.<br/>";
-
+            $_SESSION['msgCadastro'] = "<div class='alert alert-danger' role='alert'>Número de matrícula incorreto.</div>";
             }elseif($cadastrado == True){
 
-            $_SESSION['msgCadastro'] = "Email já cadastrado.<br/>";
+            $_SESSION['msgCadastro'] = "<div class='alert alert-warning' role='alert'>Email já cadastrado.</div>";
 
             }elseif($senha != $senha2){
 
-            $_SESSION['msgCadastro'] = "As senhas não conferem.<br/>";
+            $_SESSION['msgCadastro'] = "<div class='alert alert-danger' role='alert'>As senhas não conferem.</div>";
 
             }else{
                 $senha = password_hash($senha, PASSWORD_DEFAULT);
 
                 $consulta = "INSERT INTO `aluno`(`matricula`, `nome`, `email`, `curso`, `turma`, `telefone`, `senha`) VALUES ('$matricula','$nome','$email', '$curso', '$turma', '$telefone', '$senha')";
                 banco($server, $user, $password, $db, $consulta);
-                $_SESSION['msgCadastro'] = "Cadastro realizado com sucesso.<br/>";
+                $_SESSION['msgCadastro'] = "<div class='alert alert-success' role='alert'>Cadastro realizado com sucesso!</div>";
             }   
         }
     ?>
 
-    <div class="error-msg">
-        <?php
-        
-        if (isset($_SESSION['msgCadastro'])){
-            echo $_SESSION['msgCadastro'];
-            unset($_SESSION['msgCadastro']);
-        }
-
-        ?>
-    </div>
+    
 
     <div class="container">
         
     <h1>Crie uma nova conta:</h1>
+
+        <div class="error-msg">
+            <?php
+            
+            if (isset($_SESSION['msgCadastro'])){
+                echo $_SESSION['msgCadastro'];
+                unset($_SESSION['msgCadastro']);
+            }
+
+            ?>
+        </div>
 
         <form action="cadastro.php" method="post">
             

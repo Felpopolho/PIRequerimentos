@@ -12,8 +12,13 @@ body{
 }
 
 .container{
+<<<<<<< HEAD:login/styleLogin.css
     width: 768.375px;
     height: 600px;
+=======
+    width: 650px;
+    height: 500px;
+>>>>>>> 29116662c671c9c5d14a4b9ff951a81839f69054:login/styleLoginPage.css
     max-width: 1200px;
     display: flex;
     flex-shrink: 0;
@@ -23,8 +28,6 @@ body{
     border-radius: 10px;
     background: #F4F4F4;
     box-shadow: 0px 6px 5px 4px rgba(0, 0, 0, 0.25);
-    
-    
 }
 
 form{
@@ -32,9 +35,6 @@ form{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-    
-
 }
 
 .input{
@@ -43,7 +43,6 @@ form{
     padding-left: 10px;
     padding-right: 10px;
     flex-shrink: 0;
-    margin-bottom: 5%;
     outline: 0;
     border: 0px;
     border-radius: 15px;

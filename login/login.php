@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleLogin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleLoginPage.css">
+    
     <title>Faça login!</title>
+
 </head>
 <body>
     <?php
@@ -24,7 +27,7 @@
 
             if (empty($usuario) or empty($userSenha)){
 
-                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                 
             }else{
                 switch (strlen($usuario)){
@@ -37,12 +40,11 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['idMaster'] = $idMaster;	
-                                header('Location: masterLogin.php');
                             }else{
-                                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                                $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
                         }else{
-                            $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                            $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                         }
                         break;
                         
@@ -56,12 +58,11 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['SIAPE'] = $SIAPE;	
-                                header('Location: coordLogin.php');
                             }else{
-                                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                                $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
                         }else{
-                            $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                            $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                         }
                         break;
     
@@ -74,24 +75,25 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['matricula'] = $matricula;	
-                                header('Location: alunoLogin.php');
                             }else{
-                                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                                $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
                         }else{
-                            $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                            $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                         }
                         break;
                     
                     default;
-                        $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                        $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                         break;
                 }
             }
+            header('Location: login.php');
         }
 
     ?>
     <div class='container'>
+
         <h1>Faça login!</h1><br>
 
         <div class="error-msg">
@@ -104,8 +106,8 @@
         </div>
         
         <form action="login.php" method="post">
-            <input type="text" name="usuario" class="input" placeholder="Usuário">
-            <input type="password" name="userSenha" class="input" placeholder="Senha">
+            <input type="text" name="usuario" class="input" placeholder="Usuário"><br>
+            <input type="password" name="userSenha" class="input" placeholder="Senha"><br>
             
             <input type="submit" name="botaoLogin" value="Login">
         </form>
@@ -114,6 +116,7 @@
             Ainda não tem uma conta?
             <a href="cadastro.php">Cadastre-se.</a>
         </p>
+
     </div>
 </body>
 </html>

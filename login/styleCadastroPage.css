@@ -103,7 +103,6 @@ p{
 
 .input-curso{
     width: 300px;
-    height: 60px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
@@ -120,9 +119,12 @@ p{
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+<<<<<<< HEAD:login/styleCadastro.css
     
 }
 
 select[name="turma"]opyion{
     background-color: #464646;
+=======
+>>>>>>> 29116662c671c9c5d14a4b9ff951a81839f69054:login/styleCadastroPage.css
 }
