@@ -4,19 +4,23 @@
 
     if (empty($usuario)){
 
-        $_SESSION['msgIndex'] = "<div class='alert alert-danger' role='alert'>Informe o usuário.</div></br>";
+        $_SESSION['msgIndex'] = "Informe o usuário.</br>";
+        header('Location: index.php');
 
     }elseif(strlen($usuario) != 5){
 
-        $_SESSION['msgIndex'] = "<div class='alert alert-warning' role='alert'>O número do usuário deve conter 5 digitos.</div><br/>";
+        $_SESSION['msgIndex'] = "O número do usuário deve conter 5 digítos.<br/>";
+        header('Location: index.php');
 
     }elseif(!is_numeric($usuario)){
 
-        $_SESSION['msgIndex'] = "<div class='alert alert-warning' role='alert'>O usuário deve conter apenas números.</div></br>";
+        $_SESSION['msgIndex'] = "O usuário deve conter apenas números.</br>";
+        header('Location: index.php');
 
     }elseif(empty($senha)){
 
-        $_SESSION['msgIndex'] = "<div class='alert alert-danger' role='alert'>Informe a senha.</div></br>";
+        $_SESSION['msgIndex'] = "Informe a senha.</br>";
+        header('Location: index.php');
 
     }else{
         $senha = password_hash($senha, PASSWORD_DEFAULT);
@@ -26,7 +30,4 @@
         exit;
 
     }
-
-    header('Location: index.php');
-    exit;
 ?>
