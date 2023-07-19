@@ -14,13 +14,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <meta name="description" id="description" 
+    content="Bem-vindo! Cadastre-se no sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
+
 </head>
 <body>
 
     <?php
         session_start();
         extract($_POST);
-        include "/xampp/htdocs/pirequerimentos-git/PIRequerimentos/const.php";
+        include "../const.php";
 
         if (isset($botaoCadastro)){
             $cadastrado = False;

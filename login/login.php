@@ -7,20 +7,23 @@
     <link rel="stylesheet" href="styleLoginPage.css">
     
     <title>Faça login!</title>
+    
+    <meta name="description" id="description" 
+    content="Bem-vindo! Faça login no sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
 
 </head>
 <body>
     <?php
         session_start();
         extract($_POST);
-        include "/xampp/htdocs/pirequerimentos-git/PIRequerimentos/const.php";
+        include "../const.php";
 
         if (isset($_SESSION['idMaster'])){
-            header('Location: masterLogin.php');
+            header('Location: master/masterHome.php');
         }elseif (isset($_SESSION['SIAPE'])){
-            header('Location: coordLogin.php');
+            header('Location: coord/coordHome.php');
         }elseif (isset($_SESSION['matricula'])){
-            header('Location: alunoLogin.php');
+            header('Location: aluno/alunoHome.php');
         }
 
         if (isset($botaoLogin)){

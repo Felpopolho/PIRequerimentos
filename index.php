@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ignite: Master</title>
+    <meta name="description" id="description" 
+    content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
 </head>
 <body>
     <?php
@@ -13,7 +15,6 @@
         $consulta = "SELECT COUNT(senha) AS total FROM `sisadmin`";
         $result = banco($server, $user, $password, $db, $consulta);
         $row = mysqli_fetch_assoc($result);
-        
         if($row['total'] != 0) {
             header('Location: login/login.php');
             exit;
