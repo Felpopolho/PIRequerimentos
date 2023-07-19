@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleLoginPage.css">
+    
     <title>Faça login!</title>
+
 </head>
 <body>
     <?php
@@ -23,7 +27,7 @@
 
             if (empty($usuario) or empty($userSenha)){
 
-                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                 
             }else{
                 switch (strlen($usuario)){
@@ -37,11 +41,12 @@
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['idMaster'] = $idMaster;	
                             }else{
-                                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                                $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
                         }else{
-                            $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                            $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                         }
+                        break;
                         
     
                     case (7);
@@ -54,11 +59,12 @@
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['SIAPE'] = $SIAPE;	
                             }else{
-                                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                                $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
                         }else{
-                            $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                            $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                         }
+                        break;
     
                     case (12);
                         $consulta = "SELECT `matricula`, `senha` FROM `aluno` WHERE matricula='$usuario' LIMIT 1";
@@ -70,35 +76,48 @@
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['matricula'] = $matricula;	
                             }else{
-                                $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                                $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
                         }else{
-                            $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                            $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                         }
+                        break;
                     
                     default;
-                        $_SESSION['msgLogin'] = "Usuário ou senha incorretos.</br>";
+                        $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
+                        break;
                 }
             }
+            header('Location: login.php');
         }
 
     ?>
+    <div class='container'>
 
-    <?php
-        if (isset($_SESSION['msgLogin'])){
-            echo $_SESSION['msgLogin'];
-            unset($_SESSION['msgLogin']);
-        }
-    ?>
+        <img src="logo.png">
+        <br>
 
-    Faça login!
-    <form action="login.php" method="post">
-        <input type="text" name="usuario">
-        <input type="password" name="userSenha">
+        <div class="error-msg">
+            <?php
+                if (isset($_SESSION['msgLogin'])){
+                    echo $_SESSION['msgLogin'];
+                    unset($_SESSION['msgLogin']);
+                }
+            ?>
+        </div>
         
-        <input type="submit" name="botaoLogin">
-    </form>
+        <form action="login.php" method="post">
+            <input type="text" name="usuario" class="input" placeholder="Usuário"><br>
+            <input type="password" name="userSenha" class="input" placeholder="Senha"><br>
+            
+            <input type="submit" name="botaoLogin" value="Login">
+        </form>
 
-    <a href="cadastro.php">Ainda não tem uma conta? Cadastre-se.</a>
+        <p>
+            Ainda não tem uma conta?
+            <a href="cadastro.php">Cadastre-se.</a>
+        </p>
+
+    </div>
 </body>
 </html>
