@@ -12,13 +12,8 @@ body{
 }
 
 .container{
-<<<<<<< HEAD:login/styleLogin.css
-    width: 768.375px;
-    height: 600px;
-=======
     width: 650px;
     height: 500px;
->>>>>>> 29116662c671c9c5d14a4b9ff951a81839f69054:login/styleLoginPage.css
     max-width: 1200px;
     display: flex;
     flex-shrink: 0;
