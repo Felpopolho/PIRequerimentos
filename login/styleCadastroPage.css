@@ -27,7 +27,6 @@ body{
 
 form{
     width: 300px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -116,4 +115,22 @@ p{
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    
+}
+
+select{
+    width: 100px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: #D2D1D1;
+    outline: 0;
+    font-size: 15px;
+    color: #464646;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+::-webkit-scrollbar{
+    border-radius: 10px;
 }
