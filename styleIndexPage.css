@@ -80,12 +80,7 @@ form input::placeholder{
     line-height: normal;
 }
 
-p{
-    margin-top: 25px;
-    margin-bottom: 0px;
-}
-
-.container a{
-    text-decoration: none;
-    color: #1F34EB;
+h2{
+    display: flex;
+    justify-content: center;
 }
