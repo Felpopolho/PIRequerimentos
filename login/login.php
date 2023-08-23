@@ -19,11 +19,11 @@
         include "../const.php";
 
         if (isset($_SESSION['idMaster'])){
-            header('Location: master/masterHome.php');
+            header('Location: home/home.php');
         }elseif (isset($_SESSION['SIAPE'])){
-            header('Location: coord/coordHome.php');
+            header('Location: home/home.php');
         }elseif (isset($_SESSION['matricula'])){
-            header('Location: aluno/alunoHome.php');
+            header('Location: home/home.php');
         }
 
         if (isset($botaoLogin)){
