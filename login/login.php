@@ -97,7 +97,7 @@
     ?>
     <div class='container'>
 
-        <img src="logo.png">
+        <img src="SAR_logo_1.png">
         <br>
 
         <div class="error-msg">

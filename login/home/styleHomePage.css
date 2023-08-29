@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;500;600;700;800&display=swap');
+
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(220deg, #3E424D 0%, #A7B8CC 100%);
+    font-family: 'Sora', sans-serif;
+}
+
+/* estilização do topper */
+.topper{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+.welcome{
+    width: 1500px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.welcome h1{
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.welcome a{
+    text-decoration: none;
+}
+
+/* estilização do botão de logout */
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    margin-top: 12px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+}
+  
+/* ícone do botão */
+.sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.sign svg {
+    width: 17px;
+}
+  
+.sign svg path {
+    fill: white;
+}
+
+/* efeito em hover no botão */
+.Btn:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+}
+  
+/* efeito do clique */
+.Btn:active {
+    transform: scale(.95);
+    background-color: rgb(194, 46, 46);
+}
+
+.container{
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quantidade{
+    
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 50px;
+    width: 300px;
+    height: 180px;
+    background-color:aliceblue; 
+}
+
+.coordenadores{
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    height: 180px;
+    background-color:aliceblue;
+}
+
+.coordenadorees{
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-right: 50px;
+    width: 300px;
+    height: 180px;
+    background-color: aliceblue;
+}
+
+.quantidade h2{
+    padding-top: 20px;
+    text-align: center;
+    color:black;
+}
+
+.coordenadores h2{
+    padding-top: 20px;
+    text-align: center;
+    color: black;
+}
+
+.coordenadorees h2{
+    padding-top: 20px;
+    text-align: center;
+    color: black;
+}
+
+.meubotao{
+    padding: 10px 25px;
+    border-radius: 10px;
+    background-color: rgb(92, 90, 94);
+    
+}
