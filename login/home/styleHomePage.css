@@ -89,35 +89,15 @@ body{
     justify-content: space-between;
 }
 
-.quantidade{
-    
+.bloco{
     padding: 10px;
     border-radius: 10px;
     text-align: center;
     margin-left: 50px;
-    width: 300px;
-    height: 180px;
-    background-color:aliceblue; 
-}
-
-.coordenadores{
-    padding: 10px;
-    margin: auto;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-    height: 180px;
-    background-color:aliceblue;
-}
-
-.coordenadorees{
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
     margin-right: 50px;
     width: 300px;
     height: 180px;
-    background-color: aliceblue;
+    background-color:aliceblue; 
 }
 
 .quantidade h2{

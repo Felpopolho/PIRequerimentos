@@ -43,6 +43,7 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['idMaster'] = $idMaster;	
+                                header('Location: login.php');
                             }else{
                                 $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
@@ -61,6 +62,7 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['SIAPE'] = $SIAPE;	
+                                header('Location: login.php');
                             }else{
                                 $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
@@ -78,6 +80,7 @@
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
                                 $_SESSION['matricula'] = $matricula;	
+                                header('Location: login.php');
                             }else{
                                 $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
@@ -91,10 +94,10 @@
                         break;
                 }
             }
-            header('Location: login.php');
         }
 
     ?>
+
     <div class='container'>
 
         <img src="SAR_logo_1.png">

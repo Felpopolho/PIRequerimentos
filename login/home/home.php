@@ -33,24 +33,32 @@
 
                         </div>
                     </div>
-                    
-                    <div class='container'>
+
+                <div class='container'>
+                    <div class='bloco'>
                         <div class='quantidade'>
-                            <h2>Cursos cadastrados</h2>
-                            <a href='relatorio'><button class='meubotao'>Visualizar</button></a>
+                            <h2>cursos cadastrados</h2>
                         </div>
+                            <a href='relatorio'><button class='meubotao'>Visualizar</button></a>
+                    </div>
 
-                        <div class='coordenadores'>
+                    <div class='bloco'>
+                        <div class='quantidade'>
                             <h2>Coordenadores cadastrados</h2>
-                            <a href='relatorio'><button class='meubotao'>Visualizar</button></a>
-                        </div>
 
-                        <div class='coordenadorees'>
-                            <h2>Turmas cadastradas</h2>
                             <a href='relatorio'><button class='meubotao'>Visualizar</button></a>
                         </div>
-                   </div>";
-                
+                    </div>
+
+                    <div class='bloco'>
+                        <div class='quantidade'>
+                            <h2>turmas cadastradas</h2>
+
+                            <a href='relatorio'><button class='meubotao'>Visualizar</button></a>
+                        </div>
+                    </div>
+                </div>";
+
         }elseif (isset($_SESSION['SIAPE'])){
             echo "<div class='titulo'>
                     <h1>Bem vindo, Coordenador!</h1>
