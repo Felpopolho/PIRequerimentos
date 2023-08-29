@@ -15,7 +15,6 @@ body{
     
 }
 
-
 .quantidade{
     
     padding: 10px;
@@ -24,31 +23,19 @@ body{
     margin-left: 50px;
     width: 300px;
     height: 180px;
-    background-color:aliceblue;
+    background-color: #F0F8FF;
 }
 
-.coordenadores{
+.bloco{
     padding: 10px;
     margin: auto;
     border-radius: 10px;
     text-align: center;
     width: 300px;
     height: 180px;
-    background-color:aliceblue;
+    background-color:#F0F8FF;
     
 }
-.coordenadorees{
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    margin-right: 50px;
-    width: 300px;
-    height: 180px;
-    
-    background-color: rgb(240, 240, 253);
-    
-}
-
 
 .quantidade h2{
     padding-top: 20px;
