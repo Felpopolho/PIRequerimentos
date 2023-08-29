@@ -15,7 +15,7 @@
     <?php
         session_start();
         if (isset($_SESSION['idMaster'])){
-            echo   "<div class='topper'>
+            echo   "<div class='header'>
                         <div class='welcome'>
                             <img id='ifLogo' src='ifba_logo.png'>
 

@@ -10,7 +10,7 @@ body{
 }
 
 /* estilização do topper */
-.topper{
+.header{
     display: flex;
     justify-content: space-between;
     padding: 20px 20px;
