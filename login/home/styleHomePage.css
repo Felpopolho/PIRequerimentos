@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;500;600;700;800&display=swap');
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(220deg, #3E424D 0%, #A7B8CC 100%);
+    font-family: 'Sora', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* estilização do header */
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+.welcome{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.logo{
+    height: 70px;
+}
+
+.welcome h1{
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.welcome a{
+    text-decoration: none;
+}
+
+/* estilização do botão de logout */
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    margin-top: 12px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+}
+  
+/* ícone do botão de logout */
+.sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.sign svg {
+    width: 17px;
+}
+  
+.sign svg path {
+    fill: #FFF;
+}
+
+/* efeito em hover no botão de logout */
+.Btn:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+}
+  
+/* efeito do clique no botão de logout */
+.Btn:active {
+    transform: scale(.95);
+    background-color: rgb(194, 46, 46);
+}
+
+/* estilização do container */
+.container{
+    width: 100vw;
+    flex-wrap: wrap;
+    display: flex;
+    padding-top: 100px;
+    justify-content: space-between;
+}
+
+/* estilização dos blocos */
+.bloco{
+    width: 300px;
+    height: 180px;
+    margin-left: 50px;
+    margin-right: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #FFF;
+}
+
+.bloco h1{
+    margin-bottom: 10px;
+}
+
+.bloco h2{
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* estilização do botão de cada bloco */
+.bttn{
+    display: flex;
+    width: 200px;
+    height: 35px;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 0px;
+    transition-duration: .3s;
+    background: linear-gradient(180deg, #5C606A 20.33%, #8d97a3 62.07%);
+    box-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    text-align: center;
+    font-family: Sora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* efeito de clique no botão de cada bloco */
+.bttn:active{
+    transform: scale(0.95);
+    box-shadow: none;
+    background: linear-gradient(180deg, #3c3e44 20.33%, #5C606A 62.07%);
+}

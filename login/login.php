@@ -79,8 +79,10 @@
                             $linha = $result->fetch_assoc();
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
+                              
                                 $_SESSION['matricula'] = $matricula;
                                 header('Location: login.php');	
+                              
                             }else{
                                 $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }
@@ -97,9 +99,10 @@
         }
 
     ?>
+
     <div class='container'>
 
-        <img src="logo.png">
+        <img src="SAR_logo_1.png">
         <br>
 
         <div class="error-msg">
