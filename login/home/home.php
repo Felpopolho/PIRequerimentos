@@ -13,6 +13,8 @@
     <body>
     <?php
         session_start();
+        include "../../const.php";
+
         if (isset($_SESSION['idMaster'])){
             echo   "<div class='header'>
                         <div class='welcome'>
@@ -36,7 +38,14 @@
                 <div class='container'>
                     <div class='bloco'>
                         <div class='quantidade'>
-                            <h1>3</h1>
+                            <h1>";
+
+                            $consulta = "SELECT COUNT(idCursos) FROM `curso`";
+                            $result = banco($server, $user, $password, $db, $consulta);
+
+                            echo $result->fetch_assoc()['COUNT(idCursos)'];
+
+                      echo "</h1>
                         </div>
                         <h2>Cursos Cadastrados</h2>
                         <a href='relatorio'><button class='bttn'>Visualizar</button></a>
@@ -44,7 +53,14 @@
 
                     <div class='bloco'>
                         <div class='quantidade'>
-                            <h1>3</h1>
+                            <h1>";
+
+                            $consulta = "SELECT COUNT(idTurmas) FROM `turmas`";
+                            $result = banco($server, $user, $password, $db, $consulta);
+
+                            echo $result->fetch_assoc()['COUNT(idTurmas)'];
+                            
+                    echo "</h1>
                         </div>
                         <h2>Turmas Cadastradas</h2>
                         <a href='relatorio'><button class='bttn'>Visualizar</button></a>
@@ -52,7 +68,14 @@
 
                     <div class='bloco'>
                         <div class='quantidade'>
-                            <h1>28</h1>
+                            <h1>";
+
+                            $consulta = "SELECT COUNT(matricula) FROM `aluno`";
+                            $result = banco($server, $user, $password, $db, $consulta);
+
+                            echo $result->fetch_assoc()['COUNT(matricula)'];
+                            
+                       echo"</h1>
                         </div>
                         <h2>Alunos Cadastrados</h2>
                         <a href='relatorio'><button class='bttn'>Visualizar</button></a>
