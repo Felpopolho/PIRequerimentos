@@ -22,8 +22,6 @@
             exit;
         }
     ?>
-
-    
     
     <div class="container">
 

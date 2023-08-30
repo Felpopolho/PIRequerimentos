@@ -11,7 +11,6 @@
     </head>
 
     <body>
-
     <?php
         session_start();
         if (isset($_SESSION['idMaster'])){
@@ -34,11 +33,12 @@
                         </div>
                     </div>
 
-                <div class='container'>
-                    <div class='bloco'>
-                        <div class='quantidade'>
-                            <h2>cursos cadastrados</h2>
-                        </div>
+                    <div class='container'>
+                        <div class='bloco'>
+                            <div class='quantidade'>
+                                <h2>cursos cadastrados</h2>
+                            </div>
+                            
                             <a href='relatorio'><button class='meubotao'>Visualizar</button></a>
                     </div>
 
@@ -103,8 +103,5 @@
         }
 
     ?>
-
-        
-
     </body>
 </html>

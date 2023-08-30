@@ -30,7 +30,7 @@
             $cadastrado = False;
             $consulta = "SELECT * FROM `aluno` WHERE `matricula` = '$matricula'";
             $result = banco($server, $user, $password, $db, $consulta);
-            while ($linha = $result->fetch_assoc()){
+            while($linha = $result->fetch_assoc()){
                 if ($linha['matricula'] == $matricula){
                     $cadastrado = True;
                 }
@@ -39,6 +39,7 @@
             if(strlen($matricula)!=12){
 
             $_SESSION['msgCadastro'] = "<div class='alert alert-danger' role='alert'>Número de matrícula incorreto.</div>";
+            
             }elseif($cadastrado == True){
 
             $_SESSION['msgCadastro'] = "<div class='alert alert-warning' role='alert'>Usuário já cadastrado.</div>";
@@ -80,9 +81,7 @@
 
             <?php
                 $consulta = "SELECT idCursos, nomeCurso FROM `curso` WHERE 1";
-                banco($server, $user, $password, $db, $consulta);
                 $result = banco($server, $user, $password, $db, $consulta);
-
 
                 $qtdCursos = $result->num_rows;
 
@@ -98,7 +97,6 @@
                     $curso = $Curso;
 
                     echo "<input type='radio' name='cursor' id='$idcurso' value='$idcurso' onchange='mudarTurma()'> <label for='$idcurso'>$curso</label> <br>";
-
                 }
 
                 echo "</div></br>";
@@ -127,8 +125,8 @@
                                 }
 
                                 console.log(listaTurmas);
-                        })
-                        .catch(error => console.error('Erro:', error));
+                            })
+                            .catch(error => console.error('Erro:', error));
                     }
                 </script>
             </select>
