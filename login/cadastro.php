@@ -29,8 +29,9 @@
         if (isset($botaoCadastro)){
             $cadastrado = False;
             $consulta = "SELECT * FROM `aluno` WHERE `matricula` = '$matricula'";
-            $result = banco($server, $user, $password, $db, $consulta);
-            while($linha = $result->fetch_assoc()){
+            $result = banco($server, $user, $password, $db, $consulta);=======
+              
+            while ($linha = $result->fetch_assoc()){
                 if ($linha['matricula'] == $matricula){
                     $cadastrado = True;
                 }
@@ -49,12 +50,14 @@
             $_SESSION['msgCadastro'] = "<div class='alert alert-danger' role='alert'>As senhas não conferem.</div>";
 
             }else{
-                $senha = password_hash($senha, PASSWORD_DEFAULT);
+
+                $senha = password_hash($senha, PASSWORD_DEFAULT); 
                 $email = $matricula."@ifba.edu.br";
 
                 $consulta = "INSERT INTO `aluno`(`matricula`, `nome`, `email`, `idCursos`, `idTurma`, `telefone`, `senha`) VALUES ('$matricula','$nome', '$email', '$cursor', '$turma', '$telefone', '$senha')";
                 banco($server, $user, $password, $db, $consulta);
-                $_SESSION['msgCadastro'] = "<div class='alert alert-success' role='alert'>Cadastro realizado com sucesso!</div>";
+                $_SESSION['msgLogin'] = "<div class='alert alert-success' role='alert'>Cadastro realizado com sucesso!</div>";
+                header("Location: login.php");
             }   
         }
     ?>
