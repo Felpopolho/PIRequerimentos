@@ -17,9 +17,9 @@
         if (isset($_SESSION['idMaster'])){
             echo   "<div class='header'>
                         <div class='welcome'>
-                            <img id='ifLogo' src='ifba_logo.png'>
+                            <img class='logo' src='ifba_logo.png'>
 
-                            <img id='sarLogo' src='SAR_logo_2.png'>
+                            <img class='logo' src='SAR_logo_2.png'>
 
                             <h2>Olá, Admin!</h2>
                         
@@ -37,25 +37,26 @@
                 <div class='container'>
                     <div class='bloco'>
                         <div class='quantidade'>
-                            <h2>cursos cadastrados</h2>
+                            <h1>3</h1>
                         </div>
-                            <a href='relatorio'><button class='meubotao'>Visualizar</button></a>
+                        <h2>Cursos Cadastrados</h2>
+                        <a href='relatorio'><button class='bttn'>Visualizar</button></a>
                     </div>
 
                     <div class='bloco'>
                         <div class='quantidade'>
-                            <h2>Coordenadores cadastrados</h2>
-
-                            <a href='relatorio'><button class='meubotao'>Visualizar</button></a>
+                            <h1>3</h1>
                         </div>
+                        <h2>Turmas Cadastradas</h2>
+                        <a href='relatorio'><button class='bttn'>Visualizar</button></a>
                     </div>
 
                     <div class='bloco'>
                         <div class='quantidade'>
-                            <h2>turmas cadastradas</h2>
-
-                            <a href='relatorio'><button class='meubotao'>Visualizar</button></a>
+                            <h1>28</h1>
                         </div>
+                        <h2>Alunos Cadastrados</h2>
+                        <a href='relatorio'><button class='bttn'>Visualizar</button></a>
                     </div>
                 </div>";
 

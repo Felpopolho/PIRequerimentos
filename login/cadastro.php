@@ -127,8 +127,8 @@
                                 }
 
                                 console.log(listaTurmas);
-                        })
-                        .catch(error => console.error('Erro:', error));
+                            })
+                            .catch(error => console.error('Erro:', error));
                     }
                 </script>
             </select>

@@ -73,8 +73,8 @@ input[type="submit"]:hover{
 
 input[type="submit"]:active{
     transform: translate(0px, 2px);
-    /* transform: scale(0.95); */
     background: linear-gradient(180deg, #3c3e44 20.33%, #5C606A 62.07%);
+    box-shadow: none;
 }
 
 form input::placeholder{
