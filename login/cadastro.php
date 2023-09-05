@@ -29,7 +29,7 @@
         if (isset($botaoCadastro)){
             $cadastrado = False;
             $consulta = "SELECT * FROM `aluno` WHERE `matricula` = '$matricula'";
-            $result = banco($server, $user, $password, $db, $consulta);=======
+            $result = banco($server, $user, $password, $db, $consulta);
               
             while ($linha = $result->fetch_assoc()){
                 if ($linha['matricula'] == $matricula){
@@ -49,6 +49,10 @@
 
             $_SESSION['msgCadastro'] = "<div class='alert alert-danger' role='alert'>As senhas não conferem.</div>";
 
+            }elseif (!isset($cursor)){
+
+            $_SESSION['msgCadastro'] = "<div class='alert alert-danger' role='alert'>Selecione um curso.</div>";
+                
             }else{
 
                 $senha = password_hash($senha, PASSWORD_DEFAULT); 
@@ -82,15 +86,14 @@
             <input type="text" name="matricula" class="input" placeholder="Matrícula"><br>
             <input type="text" name="nome" class="input" placeholder="Nome completo"><br>
 
+            Curso: <br/>
+            <select id='cursor' onchange='mudarTurma()'>
+            <option value=''>Selecione o curso</option>
             <?php
                 $consulta = "SELECT idCursos, nomeCurso FROM `curso` WHERE 1";
                 $result = banco($server, $user, $password, $db, $consulta);
 
                 $qtdCursos = $result->num_rows;
-
-                echo "Curso: <br>
-                <div class='input-curso'>";
-                    
 
                 for ($i=0; $i < $qtdCursos; $i++) { 
                     $linha = $result->fetch_assoc();
@@ -99,11 +102,12 @@
                     $idcurso = $idCurso;
                     $curso = $Curso;
 
-                    echo "<input type='radio' name='cursor' id='$idcurso' value='$idcurso' onchange='mudarTurma()'> <label for='$idcurso'>$curso</label> <br>";
+                    echo "<option value='$idcurso'>$curso</option>";
                 }
 
-                echo "</div></br>";
+                echo "</br>";
             ?>
+            </select>
 
             Turma: <br>
             <select  id='seletor_turma' name='turma'>
@@ -115,7 +119,7 @@
                             selectElement.remove(0);
                         }
 
-                        const idCurso = document.querySelector('input[name="cursor"]:checked').value;
+                        const idCurso = document.querySelector('#cursor').value;
                         
                         fetch(`consulta.php?idCurso=${idCurso}`)
                             .then((response) => response.json())
