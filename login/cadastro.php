@@ -49,16 +49,12 @@
 
             $_SESSION['msgCadastro'] = "<div class='alert alert-danger' role='alert'>As senhas não conferem.</div>";
 
-            }elseif (!isset($cursor)){
-
-            $_SESSION['msgCadastro'] = "<div class='alert alert-danger' role='alert'>Selecione um curso.</div>";
-                
             }else{
 
                 $senha = password_hash($senha, PASSWORD_DEFAULT); 
                 $email = $matricula."@ifba.edu.br";
 
-                $consulta = "INSERT INTO `aluno`(`matricula`, `nome`, `email`, `idCursos`, `idTurma`, `telefone`, `senha`) VALUES ('$matricula','$nome', '$email', '$cursor', '$turma', '$telefone', '$senha')";
+                $consulta = "INSERT INTO `aluno`(`matricula`, `nome`, `email`, `idCursos`, `telefone`, `senha`) VALUES ('$matricula','$nome', '$email', '$cursor', '$telefone', '$senha')";
                 banco($server, $user, $password, $db, $consulta);
                 $_SESSION['msgLogin'] = "<div class='alert alert-success' role='alert'>Cadastro realizado com sucesso!</div>";
                 header("Location: login.php");
@@ -87,56 +83,28 @@
             <input type="text" name="nome" class="input" placeholder="Nome completo"><br>
 
             Curso: <br/>
-            <select id='cursor' onchange='mudarTurma()'>
+            <select name='cursor' id='cursor' onchange='mudarTurma()'>
             <option value=''>Selecione o curso</option>
             <?php
-                $consulta = "SELECT idCursos, nomeCurso FROM `curso` WHERE 1";
+                $consulta = "SELECT idCurso, nomeCurso FROM `curso` WHERE 1";
                 $result = banco($server, $user, $password, $db, $consulta);
 
                 $qtdCursos = $result->num_rows;
 
                 for ($i=0; $i < $qtdCursos; $i++) { 
                     $linha = $result->fetch_assoc();
-                    $idCurso = $linha['idCursos'];
+                    $idCurso = $linha['idCurso'];
                     $Curso = $linha['nomeCurso'];
                     $idcurso = $idCurso;
                     $curso = $Curso;
 
-                    echo "<option value='$idcurso'>$curso</option>";
+                    echo "<option name='cursor' value='$idcurso'>$curso</option>";
                 }
 
                 echo "</br>";
             ?>
             </select>
 
-            Turma: <br>
-            <select  id='seletor_turma' name='turma'>
-                <script>
-                    function mudarTurma() { 
-                        var selectElement = document.getElementById("seletor_turma");
-
-                        while (selectElement.options.length > 0) {
-                            selectElement.remove(0);
-                        }
-
-                        const idCurso = document.querySelector('#cursor').value;
-                        
-                        fetch(`consulta.php?idCurso=${idCurso}`)
-                            .then((response) => response.json())
-                            .then((listaTurmas) => {
-                                for (let i = 0; i < listaTurmas.length; i+=2) {
-                                    var option = document.createElement("option");
-                                    option.text = listaTurmas[i];
-                                    option.value = listaTurmas[i+1];
-                                    selectElement.appendChild(option);
-                                }
-
-                                console.log(listaTurmas);
-                            })
-                            .catch(error => console.error('Erro:', error));
-                    }
-                </script>
-            </select>
             <br>
                 
             <input type="text" name="telefone" class="input" placeholder="Telefone" minlength="10" maxlength="12" onkeypress="$(this).mask('(00) 00000-0000')"><br>

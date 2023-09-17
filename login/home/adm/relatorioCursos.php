@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página Inicial</title>
+        <meta name="description" id="description" 
+        content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
+    </head>
+
+    <body>
+        <div class='header'>
+            <div class='welcome'>
+                <h2>Olá, Admin!</h2>
+            
+                <a href='sair.php' class='Btn'>
+                    <div class='sign'>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <div class='container'>
+            <div class='bloco'>
+            <table id='table'>
+                <thead>
+                   <tr>
+                        <th scope='col' onclick='sortTable(0)'>ID</th>
+                        <th scope='col' onclick='sortTable(1)'>Nome</th>
+                        <th scope='col' onclick='sortTable(2)'>Coordenador</th>
+                    </tr>
+                </thead>
+
+                <?php
+                    include "../../../const.php";
+
+                    $consulta = "SELECT idCurso,nomeCurso,coordenador FROM curso";
+                    $result = banco($server, $user, $password, $db, $consulta);
+
+                    while ($linha = $result->fetch_assoc()){
+
+                        $consulta2 = "SELECT nome FROM coordenacao WHERE coord = $linha[idCurso]";
+                        $result2 = banco($server, $user, $password, $db, $consulta2);
+
+                        echo "
+                            <tr>
+                                <td>" . $linha['idCurso'] . "</td>
+                                <td>" . $linha['nomeCurso'] . "</td>
+                                <td>" . $result2->fetch_assoc()['nome'] . "</td>
+                            </tr>
+                            ";
+                        }
+                    
+                ?>
+            </table>
+        </div>
+
+    </body>
+</html> 

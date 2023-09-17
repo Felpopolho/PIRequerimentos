@@ -54,7 +54,7 @@
                         
     
                     case (7);
-                        $consulta = "SELECT `SIAPE`, `senha` FROM `adm/cores` WHERE SIAPE='$usuario' LIMIT 1";
+                        $consulta = "SELECT `SIAPE`, `senha` FROM `coordenacao` WHERE SIAPE='$usuario' LIMIT 1";
                         $result = banco($server, $user, $password, $db, $consulta);
 
                         if ($result->num_rows > 0){

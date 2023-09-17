@@ -21,7 +21,7 @@
                             <img class='logo' src='ifba_logo.png'>
 
                             <img class='logo' src='SAR_logo_2.png'>
-
+                    
                             <h2>Olá, Admin!</h2>
                         
                             <a href='sair.php' class='Btn'>
@@ -40,30 +40,30 @@
                         <div class='quantidade'>
                             <h1>";
 
-                            $consulta = "SELECT COUNT(idCursos) FROM `curso`";
+                            $consulta = "SELECT COUNT(idCurso) FROM `curso`";
                             $result = banco($server, $user, $password, $db, $consulta);
 
-                            echo $result->fetch_assoc()['COUNT(idCursos)'];
+                            echo $result->fetch_assoc()['COUNT(idCurso)'];
 
                       echo "</h1>
                         </div>
                         <h2>Cursos Cadastrados</h2>
-                        <a href='relatorio'><button class='bttn'>Visualizar</button></a>
+                        <a href='adm/relatorioCursos.php'><button class='bttn'>Visualizar</button></a>
                     </div>
 
                     <div class='bloco'>
                         <div class='quantidade'>
                             <h1>";
 
-                            $consulta = "SELECT COUNT(idTurmas) FROM `turmas`";
+                            $consulta = "SELECT COUNT(SIAPE) FROM `coordenacao`";
                             $result = banco($server, $user, $password, $db, $consulta);
 
-                            echo $result->fetch_assoc()['COUNT(idTurmas)'];
+                            echo $result->fetch_assoc()['COUNT(SIAPE)'];
                             
                     echo "</h1>
                         </div>
-                        <h2>Turmas Cadastradas</h2>
-                        <a href='relatorio'><button class='bttn'>Visualizar</button></a>
+                        <h2>Coordenadores Cadastradas</h2>
+                        <a href='adm/relatorioCoordenadores.php'><button class='bttn'>Visualizar</button></a>
                     </div>
 
                     <div class='bloco'>
@@ -78,7 +78,7 @@
                        echo"</h1>
                         </div>
                         <h2>Alunos Cadastrados</h2>
-                        <a href='relatorio'><button class='bttn'>Visualizar</button></a>
+                        <a href='adm/relatorioAlunos.php'><button class='bttn'>Visualizar</button></a>
                     </div>
                 </div>";
 
