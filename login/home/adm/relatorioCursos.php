@@ -14,8 +14,9 @@
             <div class='welcome'>
                 <h2>Olá, Admin!</h2>
             
-                <a href='sair.php' class='Btn'>
+                <a href='../home.php' class='Btn'>
                     <div class='sign'>
+                        sair
                     </div>
                 </a>
 
@@ -41,7 +42,7 @@
 
                     while ($linha = $result->fetch_assoc()){
 
-                        $consulta2 = "SELECT nome FROM coordenacao WHERE coord = $linha[idCurso]";
+                        $consulta2 = "SELECT nome FROM coordenacao WHERE SIAPE = $linha[coordenador]";
                         $result2 = banco($server, $user, $password, $db, $consulta2);
 
                         echo "

@@ -14,8 +14,9 @@
             <div class='welcome'>
                 <h2>Olá, Admin!</h2>
             
-                <a href='sair.php' class='Btn'>
+                <a href='../home.php' class='Btn'>
                     <div class='sign'>
+                        sair    
                     </div>
                 </a>
 

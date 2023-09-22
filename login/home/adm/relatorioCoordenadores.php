@@ -14,8 +14,9 @@
             <div class='welcome'>
                 <h2>Olá, Admin!</h2>
             
-                <a href='sair.php' class='Btn'>
+                <a href='../home.php' class='Btn'>
                     <div class='sign'>
+                        sair
                     </div>
                 </a>
 
@@ -37,12 +38,12 @@
                 <?php
                     include "../../../const.php";
 
-                    $consulta = "SELECT SIAPE,nome,email,coord FROM coordenacao";
+                    $consulta = "SELECT SIAPE,nome,email FROM coordenacao";
                     $result = banco($server, $user, $password, $db, $consulta);
 
                     while ($linha = $result->fetch_assoc()){
 
-                        $consulta2 = "SELECT nomeCurso FROM curso WHERE idCurso = $linha[coord]";
+                        $consulta2 = "SELECT nomeCurso FROM curso WHERE coordenador = $linha[SIAPE]";
                         $result2 = banco($server, $user, $password, $db, $consulta2);
 
                         echo "
