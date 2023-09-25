@@ -54,6 +54,11 @@
                                 <td>" . $linha['email'] . "</td>
                                 <td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>
                                 <td>" . $linha['telefone'] . "</td>
+
+                                <form action='editar.php' method='get'>
+                                    <td><input name='matricula' type='hidden' value='".$linha['matricula']."'></td>
+                                    <td><input type='submit' value='Editar'></td>
+                                </form>
                             </tr>
                             ";
                         }

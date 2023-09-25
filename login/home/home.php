@@ -62,7 +62,7 @@
                             
                     echo "</h1>
                         </div>
-                        <h2>Coordenadores Cadastradas</h2>
+                        <h2>Coordenadores Cadastrados</h2>
                         <a href='adm/relatorioCoordenadores.php'><button class='bttn'>Visualizar</button></a>
                     </div>
 

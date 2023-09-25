@@ -51,13 +51,26 @@
                                 <td>" . $linha['SIAPE'] . "</td>
                                 <td>" . $linha['nome'] . "</td>
                                 <td>" . $linha['email'] . "</td>
-                                <td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>
+                                ";
+                                
+                                if($result2->num_rows > 0){
+                                    echo "<td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>";
+                                }
+
+                                echo "<form action='editar.php' method='get'>
+                                    <td><input name='siape' type='hidden' value='".$linha['SIAPE']."'></td>
+                                    <td><input type='submit' value='Editar'></td>
+                                </form>
                             </tr>
                             ";
                         }
-                    
                 ?>
             </table>
+
+            <?php
+                echo "<a href='incluirCoordenador.php'><button>Adicionar novo coordenador</button></a>"
+            ?>
+
         </div>
 
     </body>

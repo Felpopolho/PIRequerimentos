@@ -50,12 +50,22 @@
                                 <td>" . $linha['idCurso'] . "</td>
                                 <td>" . $linha['nomeCurso'] . "</td>
                                 <td>" . $result2->fetch_assoc()['nome'] . "</td>
+                                
+                                <form action='editar.php' method='get'>
+                                    <td><input name='idCurso' type='hidden' value='".$linha['idCurso']."'></td>
+                                    <td><input type='submit' value='Editar'></td>
+                                </form>
                             </tr>
                             ";
                         }
                     
                 ?>
             </table>
+
+            <?php
+                echo "<a href='incluirCurso.php'><button>Adicionar novo curso</button></a>"
+            ?>
+
         </div>
 
     </body>
