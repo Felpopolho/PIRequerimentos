@@ -55,6 +55,11 @@
                                     <td><input name='idCurso' type='hidden' value='".$linha['idCurso']."'></td>
                                     <td><input type='submit' value='Editar'></td>
                                 </form>
+
+                                <form action='deletar.php' method='get'>
+                                    <td><input name='idCurso' type='hidden' value='".$linha['idCurso']."'></td>
+                                    <td><input type='submit' value='Deletar'></td>
+                                </form>
                             </tr>
                             ";
                         }

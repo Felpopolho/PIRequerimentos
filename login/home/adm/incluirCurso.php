@@ -22,27 +22,32 @@
             <input name="nome" type="text" placeholder="Nome do curso"> <br/>
             <input name="coordenador" type="text" placeholder="SIAPE do Coordenador do curso"> <br/>
             <input name="addBtn" type="submit" value="Adicionar">
-            <a href="relatorioCoordenadores.php">Cancelar</a>
+            <a href="relatorioCursos.php">Cancelar</a>
         </form>
 
         <?php
             include "../../../const.php";
             extract($_POST);
-            $consulta1 = "SELECT * FROM coordenacao WHERE SIAPE = '$coordenador'";
-            $result1 = banco($server, $user, $password, $db, $consulta1);
 
-            if(!isset($nome)){
-                $_SESSION['coordMsg'] = "Insira o nome!";
-            }elseif(!isset($coordenador)){
-                $_SESSION['coordMsg'] = "Insira o SIAPE do coordenador!";
-            }elseif(!is_numeric($coordenador)){
-                $_SESSION['coordMsg'] = "O SIAPE deve conter apenas números!";
-            }elseif($result1->num_rows == 0){
-                $_SESSION['coordMsg'] = "Coordenador não encontrado, cadastre o coordenador antes de cadastrar um novo curso!";
-            }else{
-                $consulta = "INSERT INTO `curso`(`idCurso`, `coordenador`, `nomeCurso`) VALUES ('NULL','$coordenador','$nome')";
-                banco($server, $user, $password, $db, $consulta);
-                header('Location: relatorioCursos.php');
+            if(isset($addBtn)){
+                $consulta1 = "SELECT * FROM coordenacao WHERE SIAPE = '$coordenador'";
+                $result1 = banco($server, $user, $password, $db, $consulta1);
+            
+                if(!isset($nome)){
+                    $_SESSION['coordMsg'] = "Insira o nome!";
+                }elseif(!isset($coordenador)){
+                    $_SESSION['coordMsg'] = "Insira o SIAPE do coordenador!";
+                }elseif(!isset($coordenador)){
+                    $_SESSION['coordMsg'] = "Insira o Coordenador!";
+                }elseif($result1->num_rows == 0){
+                    $_SESSION['coordMsg'] = "Coordenador não encontrado, cadastre o coordenador antes de cadastrar um novo curso!";
+                }elseif(!is_numeric($coordenador)){
+                    $_SESSION['coordMsg'] = "O SIAPE deve conter apenas números!";
+                }else{
+                    $consulta = "INSERT INTO `curso`(`coordenador`, `nomeCurso`) VALUES ('$coordenador','$nome')";
+                    banco($server, $user, $password, $db, $consulta);
+                    header('Location: relatorioCursos.php');
+                }
             }
         ?>
     </body>
