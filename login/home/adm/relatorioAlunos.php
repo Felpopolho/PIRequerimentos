@@ -67,8 +67,9 @@
                             </tr>
                             ";
                         }
-                    
                 ?>
+
+                <script src="sortTable.js"></script>
             </table>
         </div>
 

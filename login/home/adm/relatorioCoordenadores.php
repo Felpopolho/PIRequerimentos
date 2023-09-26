@@ -65,6 +65,7 @@
                             ";
                         }
                 ?>
+                <script src="sortTable.js"></script>
             </table>
 
             <?php
