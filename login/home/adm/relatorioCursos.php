@@ -58,7 +58,9 @@
 
                                 <form action='deletar.php' method='get'>
                                     <td><input name='idCurso' type='hidden' value='".$linha['idCurso']."'></td>
+                                    <td><input name='nomeCurso' type='hidden' value='".$linha['nomeCurso']."'></td>
                                     <td><input type='submit' value='Deletar'></td>
+
                                 </form>
                             </tr>
                             ";
