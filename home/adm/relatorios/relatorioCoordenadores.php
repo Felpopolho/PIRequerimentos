@@ -14,9 +14,9 @@
             <div class='welcome'>
                 <h2>Olá, Admin!</h2>
             
-                <a href='../home.php' class='Btn'>
+                <a href='../../home.php' class='Btn'>
                     <div class='sign'>
-                        sair    
+                        sair
                     </div>
                 </a>
 
@@ -28,50 +28,50 @@
             <table id='table'>
                 <thead>
                    <tr>
-                        <th scope='col' onclick='sortTable(0)'>Matrícula</th>
+                        <th scope='col' onclick='sortTable(0)'>SIAPE</th>
                         <th scope='col' onclick='sortTable(1)'>Nome</th>
                         <th scope='col' onclick='sortTable(2)'>Email</th>
-                        <th scope='col' onclick='sortTable(2)'>Curso</th>
-                        <th scope='col' onclick='sortTable(2)'>Telefone</th>
+                        <th scope='col' onclick='sortTable(2)'>Coordenação</th>
                     </tr>
                 </thead>
 
                 <?php
-                    include "../../../const.php";
+                    include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
-                    $consulta = "SELECT matricula,nome,email,idCursos,telefone FROM aluno";
+                    $consulta = "SELECT SIAPE,nome,email FROM coordenacao";
                     $result = banco($server, $user, $password, $db, $consulta);
 
                     while ($linha = $result->fetch_assoc()){
 
-                        $consulta2 = "SELECT nomeCurso FROM curso WHERE idCurso = $linha[idCursos]";
+                        $consulta2 = "SELECT nomeCurso FROM curso WHERE coordenador = $linha[SIAPE]";
                         $result2 = banco($server, $user, $password, $db, $consulta2);
 
                         echo "
                             <tr>
-                                <td>" . $linha['matricula'] . "</td>
+                                <td>" . $linha['SIAPE'] . "</td>
                                 <td>" . $linha['nome'] . "</td>
                                 <td>" . $linha['email'] . "</td>
-                                <td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>
-                                <td>" . $linha['telefone'] . "</td>
+                                ";
+                                
+                                if($result2->num_rows > 0){
+                                    echo "<td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>";
+                                }
 
-                                <form action='editar.php' method='get'>
-                                    <td><input name='matricula' type='hidden' value='".$linha['matricula']."'></td>
+                                echo "<form action='../funcoesRelatorio/admEditar.php' method='get'>
+                                    <td><input name='siape' type='hidden' value='".$linha['SIAPE']."'></td>
                                     <td><input type='submit' value='Editar'></td>
-                                </form>
-
-                                <form action='deletar.php' method='get'>
-                                    <td><input name='matricula' type='hidden' value='".$linha['matricula']."'></td>
-                                    <td><input name='nome' type='hidden' value='".$linha['nome']."'></td>
-                                    <td><input type='submit' value='Deletar'></td>
                                 </form>
                             </tr>
                             ";
                         }
                 ?>
-
-                <script src="sortTable.js"></script>
+                <script src="/PIRequerimentos/scripts/sortTable.js"></script>
             </table>
+
+            <?php
+                echo "<a href='../funcoesRelatorio/incluirCurso.php'><button>Adicionar novo coordenador</button></a>"
+            ?>
+
         </div>
 
     </body>

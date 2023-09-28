@@ -16,14 +16,14 @@
     <?php
         session_start();
         extract($_POST);
-        include "../const.php";
+        include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
         if (isset($_SESSION['idMaster'])){
-            header('Location: home/home.php');
+            header('Location: ../home/home.php');
         }elseif (isset($_SESSION['SIAPE'])){
-            header('Location: home/home.php');
+            header('Location: ../home/home.php');
         }elseif (isset($_SESSION['matricula'])){
-            header('Location: home/home.php');
+            header('Location: ../home/home.php');
         }
 
         if (isset($botaoLogin)){
@@ -90,7 +90,7 @@
                             $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                         }
                         break;
-                    
+
                     default;
                         $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                         break;

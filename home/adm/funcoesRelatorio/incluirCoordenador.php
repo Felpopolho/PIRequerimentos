@@ -17,11 +17,11 @@
             <input name="senha" type="password" placeholder="Senha"> <br/>
             <input name="resenha" type="password" placeholder="Confirmar senha"> <br/>
             <input name="addBtn" type="submit" value="Adicionar">
-            <a href="relatorioCoordenadores.php">Cancelar</a>
+            <a href="../relatorios/relatorioCoordenadores.php">Cancelar</a>
         </form>
 
         <?php
-            include "../../../const.php";
+            include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
             extract($_POST);
 
             if(!isset($nome)){
@@ -35,7 +35,7 @@
             }else{
                 $consulta = "INSERT INTO `coordenacao`(`SIAPE`, `nome`, `email`, `senha`) VALUES ('$siape','$nome','$email','password_hash($senha, PASSWORD_DEFAULT)')";
                 banco($server, $user, $password, $db, $consulta);
-                header('Location: relatorioCoordenadores.php');
+                header('Location: ../relatorios/relatorioCoordenadores.php');
             }
         ?>
     </body>

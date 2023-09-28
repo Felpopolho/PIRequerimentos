@@ -12,7 +12,7 @@
     <body>
     <?php
         session_start();
-        include "../../../const.php";
+        include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
         extract($_GET);
 
         if (isset($siape)){
@@ -26,7 +26,7 @@
                     <input name='nome' type='text' value='".$linha['nome']."'> <br/>    
                     <input name='email' type='text' value='".$linha['email']."'> <br/>
                     <input name='editBtn' type='submit' value='Editar'>
-                    <a href='relatorioCoordenadores.php'>Cancelar</a>
+                    <a href='../relatorios/relatorioCoordenadores.php'>Cancelar</a>
                 </form>
             ";
             
@@ -35,7 +35,7 @@
             if(isset($editBtn)){
                 $consulta = "UPDATE coordenacao SET nome = '$nome', email = '$email' WHERE SIAPE = $siape";
                 $result = banco($server, $user, $password, $db, $consulta);
-                header('Location: relatorioCoordenadores.php');
+                header('Location: ../relatorios/relatorioCoordenadores.php');
             }
 
         }elseif(isset($idCurso)){
@@ -49,7 +49,7 @@
                     <input name='nome' type='text' value='".$linha['nomeCurso']."'> <br/>    
                     <input name='coordenador' type='text' value='".$linha['coordenador']."'> <br/>
                     <input name='editBtn' type='submit' value='Editar'>
-                    <a href='relatorioCursos.php'>Cancelar</a>
+                    <a href='../relatorios/relatorioCursos.php'>Cancelar</a>
                 </form>
             ";
 
@@ -63,7 +63,7 @@
                 if($result1->num_rows != 0){
                     $consulta = "UPDATE curso SET nomeCurso = '$nome', coordenador = '$coordenador' WHERE idCurso = $idCurso";
                     banco($server, $user, $password, $db, $consulta);
-                    header('Location: relatorioCursos.php');  
+                    header('Location: ../relatorios/relatorioCursos.php');  
                 }else{
                     echo "Coordenador não encontrado.";
                 }
@@ -82,7 +82,7 @@
                     <input name='curso' type='text' value='".$linha['idCursos']."'> <br/>
                     <input name='telefone' type='text' value='".$linha['telefone']."'> <br/>
                     <input name='editBtn' type='submit' value='Editar'>
-                    <a href='relatorioCursos.php'>Cancelar</a>
+                    <a href='../relatorios/relatorioCursos.php'>Cancelar</a>
                 </form>
             ";
 
@@ -96,7 +96,7 @@
                 if($result1->num_rows != 0){
                     $consulta = "UPDATE aluno SET nome = '$nome', email = '$email', idCursos = '$curso', telefone = '$telefone' WHERE matricula = $matricula";
                     banco($server, $user, $password, $db, $consulta);
-                    header('Location: relatorioAlunos.php');  
+                    header('Location: ../relatorios/relatorioAlunos.php');  
                 }else{
                     echo "Curso não encontrado.";
                 }

@@ -13,7 +13,7 @@
     <body>
     <?php
         session_start();
-        include "../../const.php";
+        include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
         if (isset($_SESSION['idMaster'])){
             echo   "<div class='header'>
@@ -48,7 +48,7 @@
                       echo "</h1>
                         </div>
                         <h2>Cursos Cadastrados</h2>
-                        <a href='adm/relatorioCursos.php'><button class='bttn'>Visualizar</button></a>
+                        <a href='/pirequerimentos/home/adm/relatorios/relatorioCursos.php'><button class='bttn'>Visualizar</button></a>
                     </div>
 
                     <div class='bloco'>
@@ -63,7 +63,7 @@
                     echo "</h1>
                         </div>
                         <h2>Coordenadores Cadastrados</h2>
-                        <a href='adm/relatorioCoordenadores.php'><button class='bttn'>Visualizar</button></a>
+                        <a href='/pirequerimentos/home/adm/relatorios/relatorioCoordenadores.php'><button class='bttn'>Visualizar</button></a>
                     </div>
 
                     <div class='bloco'>
@@ -78,7 +78,7 @@
                        echo"</h1>
                         </div>
                         <h2>Alunos Cadastrados</h2>
-                        <a href='adm/relatorioAlunos.php'><button class='bttn'>Visualizar</button></a>
+                        <a href='/pirequerimentos/home/adm/relatorios/relatorioAlunos.php'><button class='bttn'>Visualizar</button></a>
                     </div>
                 </div>";
 

@@ -12,7 +12,7 @@
     <body>       
         <?php
             session_start();
-            include "../../../const.php";
+            include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
             extract($_GET);
             extract($_POST);
 
@@ -27,9 +27,9 @@
                     if(isset($sim)){
                         $consulta = "DELETE FROM `curso` WHERE idCurso = $idCurso";
                         banco($server, $user, $password, $db, $consulta);
-                        header('Location: relatorioCursos.php');
+                        header('Location: ../relatorios/relatorioCursos.php');
                     }elseif(isset($nao)){
-                        header('Location: relatorioCursos.php');
+                        header('Location: ../relatorios/relatorioCursos.php');
                     }
                 
 
@@ -44,15 +44,11 @@
                     if(isset($sim)){
                         $consulta = "DELETE FROM `aluno` WHERE matricula = $matricula";
                         banco($server, $user, $password, $db, $consulta);
-                        header('Location: relatorioAlunos.php');
+                        header('Location: ../relatorios/relatorioAlunos.php');
                     }elseif(isset($nao)){
-                        header('Location: relatorioAlunos.php');
+                        header('Location: ../relatorios/relatorioAlunos.php');
                     }
-
-                
-
             }
-
         ?>
     </body>
 </html>

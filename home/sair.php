@@ -8,5 +8,5 @@
     }elseif(isset($_SESSION['matricula'])){
         unset($_SESSION['matricula']);
     }
-    header('Location: ../login.php');
+    header('Location: ../login/login.php');
 ?>  

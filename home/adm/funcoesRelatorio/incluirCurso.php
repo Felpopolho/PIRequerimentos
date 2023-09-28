@@ -22,11 +22,11 @@
             <input name="nome" type="text" placeholder="Nome do curso"> <br/>
             <input name="coordenador" type="text" placeholder="SIAPE do Coordenador do curso"> <br/>
             <input name="addBtn" type="submit" value="Adicionar">
-            <a href="relatorioCursos.php">Cancelar</a>
+            <a href="../relatorios/relatorioCursos.php">Cancelar</a>
         </form>
 
         <?php
-            include "../../../const.php";
+            include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
             extract($_POST);
 
             if(isset($addBtn)){
@@ -46,7 +46,7 @@
                 }else{
                     $consulta = "INSERT INTO `curso`(`coordenador`, `nomeCurso`) VALUES ('$coordenador','$nome')";
                     banco($server, $user, $password, $db, $consulta);
-                    header('Location: relatorioCursos.php');
+                    header('Location: ../relatorios/relatorioCursos.php');
                 }
             }
         ?>
