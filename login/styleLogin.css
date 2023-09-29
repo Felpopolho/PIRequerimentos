@@ -1,27 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;500;600;700;800&display=swap');
 
 body{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     margin: 0;
+    padding: 0;
     background: linear-gradient(220deg, #3E424D 0%, #A7B8CC 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: 'Sora', sans-serif;
+}
+
+/* estilização do header */
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+.welcome{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.logo{
+    height: 70px;
+}
+
+.welcome h2{
+    margin-top: 10px;
+    padding-left: 20px;
 }
 
 .container{
     width: 650px;
-    height: 500px;
+    height: 350px;
+    padding-top: 0;
+    margin-top: 90px;
     max-width: 1200px;
     display: flex;
-    flex-shrink: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background: #F4F4F4;
+    background: #ffffff;
     box-shadow: 0px 6px 5px 4px rgba(0, 0, 0, 0.25);
 }
 

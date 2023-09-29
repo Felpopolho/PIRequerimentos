@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA_Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="styleCadastroPage.css">
+    <link rel="stylesheet" href="styleCadastro.css">
 
     <title>Cadastre-se!</title>
 
@@ -62,7 +62,13 @@
         }
     ?>
 
-    
+    <div class='header'>
+        <div class='welcome'>
+            <img class='logo' src='ifba_logo.png'>
+
+            <img class='logo' src='SAR_logo_2.png'>
+        </div>
+    </div>
 
     <div class="container">
         
@@ -83,7 +89,7 @@
             <input type="text" name="nome" class="input" placeholder="Nome completo"><br>
 
             Curso: <br/>
-            <select name='cursor' id='cursor' onchange='mudarTurma()'>
+            <select name='curso' id='curso' onchange='mudarTurma()'>
             <option value=''>Selecione o curso</option>
             <?php
                 $consulta = "SELECT idCurso, nomeCurso FROM `curso` WHERE 1";
