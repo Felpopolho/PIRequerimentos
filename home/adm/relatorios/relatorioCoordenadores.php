@@ -57,10 +57,13 @@
                                     echo "<td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>";
                                 }
 
-                                echo "<form action='../funcoesRelatorio/admEditar.php' method='get'>
-                                    <td><input name='siape' type='hidden' value='".$linha['SIAPE']."'></td>
-                                    <td><input type='submit' value='Editar'></td>
-                                </form>
+                                echo "
+                                <td>
+                                    <form action='../funcoesRelatorio/admEditar.php' method='get'>
+                                        <input name='siape' type='hidden' value='".$linha['SIAPE']."'>
+                                        <input type='submit' value='Editar'>
+                                    </form>
+                                </td>
                             </tr>
                             ";
                         }

@@ -55,16 +55,20 @@
                                 <td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>
                                 <td>" . $linha['telefone'] . "</td>
 
-                                <form action='../funcoesRelatorio/admEditar.php' method='get'>
-                                    <td><input name='matricula' type='hidden' value='".$linha['matricula']."'></td>
-                                    <td><input type='submit' value='Editar'></td>
-                                </form>
+                                <td>
+                                    <form action='../funcoesRelatorio/admEditar.php' method='get'>
+                                        <input name='matricula' type='hidden' value='".$linha['matricula']."'>
+                                        <input type='submit' value='Editar'>
+                                    </form>
+                                </td>
 
-                                <form action='../funcoesRelatorio/admDeletar.php' method='get'>
-                                    <td><input name='matricula' type='hidden' value='".$linha['matricula']."'></td>
-                                    <td><input name='nome' type='hidden' value='".$linha['nome']."'></td>
-                                    <td><input type='submit' value='Deletar'></td>
-                                </form>
+                                <td>
+                                    <form action='../funcoesRelatorio/admDeletar.php' method='get'>
+                                        <input name='matricula' type='hidden' value='".$linha['matricula']."'>
+                                        <input name='nome' type='hidden' value='".$linha['nome']."'>
+                                        <input type='submit' value='Deletar'>
+                                    </form>
+                                </td>
                             </tr>
                             ";
                         }
