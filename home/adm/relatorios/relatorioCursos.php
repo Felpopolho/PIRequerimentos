@@ -37,7 +37,7 @@
                 <?php
                     include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
-                    $consulta = "SELECT idCurso,nomeCurso,coordenador FROM curso";
+                    $consulta = "SELECT * FROM curso";
                     $result = banco($server, $user, $password, $db, $consulta);
 
                     while ($linha = $result->fetch_assoc()){
@@ -51,17 +51,20 @@
                                 <td>" . $linha['nomeCurso'] . "</td>
                                 <td>" . $result2->fetch_assoc()['nome'] . "</td>
                                 
+                                <td>
                                 <form action='../funcoesRelatorio/admEditar.php' method='get'>
-                                    <td><input name='idCurso' type='hidden' value='".$linha['idCurso']."'></td>
-                                    <td><input type='submit' value='Editar'></td>
+                                    <input name='idCurso' type='hidden' value='".$linha['idCurso']."'>
+                                    <input type='submit' value='Editar'>
                                 </form>
+                                </td>
 
-                                <form action='../funcoesRelatorio/admDeletar.php' method='get'>
-                                    <td><input name='idCurso' type='hidden' value='".$linha['idCurso']."'></td>
-                                    <td><input name='nomeCurso' type='hidden' value='".$linha['nomeCurso']."'></td>
-                                    <td><input type='submit' value='Deletar'></td>
-
-                                </form>
+                                <td>
+                                    <form action='../funcoesRelatorio/admDeletar.php' method='get'>
+                                        <input name='idCurso' type='hidden' value='".$linha['idCurso']."'>
+                                        <input name='nomeCurso' type='hidden' value='".$linha['nomeCurso']."'>
+                                        <input type='submit' value='Deletar'>
+                                    </form>
+                                </td>
                             </tr>
                             ";
                         }
