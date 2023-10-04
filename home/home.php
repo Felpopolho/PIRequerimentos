@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Página Inicial</title>
-        <link rel="stylesheet" href="styleHome.css">
+        <link rel="stylesheet" href="styleHomePage.css">
         <meta name="description" id="description" 
         content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
     </head>
@@ -48,7 +48,7 @@
                       echo "</h1>
                         </div>
                         <h2>Cursos Cadastrados</h2>
-                        <a href='/pirequerimentos/home/adm/relatorios/relatorioCursos.php'><button class='bttn'>Visualizar</button></a>
+                        <a class='link' href='/pirequerimentos/home/adm/relatorios/relatorioCursos.php'><button class='bttn'>Visualizar</button></a>
                     </div>
 
                     <div class='bloco'>
@@ -63,7 +63,7 @@
                     echo "</h1>
                         </div>
                         <h2>Coordenadores Cadastrados</h2>
-                        <a href='/pirequerimentos/home/adm/relatorios/relatorioCoordenadores.php'><button class='bttn'>Visualizar</button></a>
+                        <a class='link' href='/pirequerimentos/home/adm/relatorios/relatorioCoordenadores.php'><button class='bttn'>Visualizar</button></a>
                     </div>
 
                     <div class='bloco'>
@@ -78,7 +78,7 @@
                        echo"</h1>
                         </div>
                         <h2>Alunos Cadastrados</h2>
-                        <a href='/pirequerimentos/home/adm/relatorios/relatorioAlunos.php'><button class='bttn'>Visualizar</button></a>
+                        <a class='link' href='/pirequerimentos/home/adm/relatorios/relatorioAlunos.php'><button class='bttn'>Visualizar</button></a>
                     </div>
                 </div>";
 

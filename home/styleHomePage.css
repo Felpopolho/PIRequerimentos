@@ -83,13 +83,13 @@ a{
 /* efeito em hover no botão de logout */
 .Btn:hover {
     transform: scale(1.1);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    box-shadow: 2px 2px 10px #00000033;
 }
   
 /* efeito do clique no botão de logout */
 .Btn:active {
     transform: scale(.95);
-    background-color: rgb(194, 46, 46);
+    background-color: #c22e2e;
 }
 
 /* estilização do container */
@@ -131,15 +131,14 @@ a{
     display: flex;
     width: 200px;
     height: 35px;
-    margin-bottom: 30px;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     border: 0px;
     transition-duration: .3s;
     background: linear-gradient(180deg, #5C606A 20.33%, #8d97a3 62.07%);
-    box-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.25);
-    color: #FFF;
+    box-shadow: 0px 4px 5px 1px #00000040;
+    color: #ffffff;
     text-align: center;
     font-family: Sora;
     font-size: 20px;
@@ -148,9 +147,19 @@ a{
     line-height: normal;
 }
 
+.bttn:hover{
+    cursor: pointer;
+}
+
 /* efeito de clique no botão de cada bloco */
 .bttn:active{
     transform: scale(0.95);
     box-shadow: none;
     background: linear-gradient(180deg, #3c3e44 20.33%, #5C606A 62.07%);
+}
+
+.link{
+    width: 200px;
+    height: 35px;
+    margin-bottom: 30px;
 }
