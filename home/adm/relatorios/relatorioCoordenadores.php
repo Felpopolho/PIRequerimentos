@@ -72,7 +72,7 @@
             </table>
 
             <?php
-                echo "<a href='../funcoesRelatorio/incluirCurso.php'><button>Adicionar novo coordenador</button></a>"
+                echo "<a href='../funcoesRelatorio/incluirCoordenador.php'><button>Adicionar novo coordenador</button></a>"
             ?>
 
         </div>
