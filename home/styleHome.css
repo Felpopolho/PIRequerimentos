@@ -73,12 +73,8 @@ a{
     justify-content: center;
 }
   
-.sign svg {
-    width: 17px;
-}
-  
-.sign svg path {
-    fill: #FFF;
+.material-symbols-outlined {
+    color: #FFF;
 }
 
 /* efeito em hover no botão de logout */

@@ -6,8 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cursos Cadastrados</title>
         <link rel="stylesheet" href="styleRelatorioCursosPage.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="description" id="description" 
         content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
     </head>
