@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/07/2023 às 18:19
+-- Tempo de geração: 13/10/2023 às 21:55
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -24,20 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adm/cores`
---
-
-CREATE TABLE `adm/cores` (
-  `SIAPE` int(7) NOT NULL,
-  `nome` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `coord` varchar(45) NOT NULL,
-  `senha` varchar(70) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
 -- Estrutura para tabela `aluno`
 --
 
@@ -45,69 +31,74 @@ CREATE TABLE `aluno` (
   `matricula` bigint(12) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `curso` varchar(45) NOT NULL,
-  `turma` varchar(45) NOT NULL,
+  `idCursos` int(4) NOT NULL,
   `telefone` varchar(45) NOT NULL,
-  `senha` varchar(70) NOT NULL
+  `senha` varchar(70) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT 3,
+  `hash` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Despejando dados para a tabela `aluno`
 --
 
-INSERT INTO `aluno` (`matricula`, `nome`, `email`, `curso`, `turma`, `telefone`, `senha`) VALUES
-(202013600012, 'Felipe Oliveira Tigre', '202013600012@ifba.edu.br', 'ei', 'EI31', '(73) 98202-5151', '$2y$10$c7ASeHl5KcbOjFS2avo8R.aqT8xsfcspM/a9kbJQmM3WYZd16VP/e'),
-(202013600013, 'Felipe2', 'felipe2@gmail.com', 'ei', 'EI12', '(99) 99999-9999', '$2y$10$FB5fTPWCkK.EpVp8YtbF9ukLE0PGWWp52WFB89E/v2uR3xSToNpyi'),
-(202013600014, 'Felipe 3', 'felipe3@email.com', 'ei', 'EI21', '(00) 00000-0000', '$2y$10$7wfac.wYI/jNN1RyjI//Eu1RvywcC9IuOVCGRoELs.o9eaOTEw6s2');
+INSERT INTO `aluno` (`matricula`, `nome`, `email`, `idCursos`, `telefone`, `senha`, `status`, `hash`) VALUES
+(202013600012, 'Felipe 2', '202013600012@ifba.edu.br', 1, '(22) 22222-2222', '$2y$10$Gp19sujwwB8chfJJRIZ3d.tOAuxZcfaONyD.aXysTZdacrgt/A9Gq', 3, '68c24b57ff1c411f26b0adc168136cf5');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `docentesrequerimento`
+-- Estrutura para tabela `coordenacao`
 --
 
-CREATE TABLE `docentesrequerimento` (
-  `idRequerimentos` int(4) NOT NULL,
-  `prof1` varchar(45) DEFAULT NULL,
-  `prof2` varchar(45) DEFAULT NULL,
-  `prof3` varchar(45) DEFAULT NULL,
-  `prof4` varchar(45) DEFAULT NULL,
-  `prof5` varchar(45) DEFAULT NULL,
-  `prof6` varchar(45) DEFAULT NULL,
-  `prof7` varchar(45) DEFAULT NULL,
-  `prof8` varchar(45) DEFAULT NULL,
-  `prof9` varchar(45) DEFAULT NULL,
-  `prof10` varchar(45) DEFAULT NULL,
-  `prof11` varchar(45) DEFAULT NULL,
-  `prof12` varchar(45) DEFAULT NULL,
-  `prof13` varchar(45) DEFAULT NULL,
-  `prof14` varchar(45) DEFAULT NULL,
-  `prof15` varchar(45) DEFAULT NULL
+CREATE TABLE `coordenacao` (
+  `SIAPE` int(7) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `coord` int(4) DEFAULT NULL,
+  `senha` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Despejando dados para a tabela `coordenacao`
+--
+
+INSERT INTO `coordenacao` (`SIAPE`, `nome`, `email`, `coord`, `senha`) VALUES
+(111111, 'Cássio Noronha', 'cassio.noronha@ifba.edu.br', 1, '$2y$10$Jzd4N733g1owzEATWgiKOuoAx7lMgjdKUr84wJviXFZfpsy4WjR0u'),
+(222222, 'Jorge Dantas', 'jorge.dantas@ifba.edu.br', 2, '$2y$10$Jzd4N733g1owzEATWgiKOuoAx7lMgjdKUr84wJviXFZfpsy4WjR0u'),
+(3333333, 'Nadja Nubia', 'nadja.nubia@ifba.edu.br', 3, '$2y$10$Jzd4N733g1owzEATWgiKOuoAx7lMgjdKUr84wJviXFZfpsy4WjR0u');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `emailsrequerimento`
+-- Estrutura para tabela `curso`
 --
 
-CREATE TABLE `emailsrequerimento` (
-  `idRequerimentos` int(4) NOT NULL,
-  `emailProf1` varchar(45) DEFAULT NULL,
-  `emailProf2` varchar(45) DEFAULT NULL,
-  `emailProf3` varchar(45) DEFAULT NULL,
-  `emailProf4` varchar(45) DEFAULT NULL,
-  `emailProf5` varchar(45) DEFAULT NULL,
-  `emailProf6` varchar(45) DEFAULT NULL,
-  `emailProf7` varchar(45) DEFAULT NULL,
-  `emailProf8` varchar(45) DEFAULT NULL,
-  `emailProf9` varchar(45) DEFAULT NULL,
-  `emailProf10` varchar(45) DEFAULT NULL,
-  `emailProf11` varchar(45) DEFAULT NULL,
-  `emailProf12` varchar(45) DEFAULT NULL,
-  `emailProf13` varchar(45) DEFAULT NULL,
-  `emailProf14` varchar(45) DEFAULT NULL,
-  `emailProf15` varchar(45) DEFAULT NULL
+CREATE TABLE `curso` (
+  `idCurso` int(4) NOT NULL,
+  `coordenador` int(7) NOT NULL,
+  `nomeCurso` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Despejando dados para a tabela `curso`
+--
+
+INSERT INTO `curso` (`idCurso`, `coordenador`, `nomeCurso`) VALUES
+(1, 111111, 'Informática'),
+(2, 222222, 'Edificações'),
+(3, 3333333, 'Meio Ambiente');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `docentes`
+--
+
+CREATE TABLE `docentes` (
+  `idRequerimento` int(4) NOT NULL,
+  `nomeDocente` varchar(45) DEFAULT NULL,
+  `emailDocente` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -118,13 +109,18 @@ CREATE TABLE `emailsrequerimento` (
 
 CREATE TABLE `requerimentos` (
   `idRequerimentos` int(4) NOT NULL,
+  `idAluno` bigint(12) DEFAULT NULL,
+  `idCurso` int(4) NOT NULL,
   `objReq` varchar(45) NOT NULL,
-  `dataInicio` date DEFAULT NULL,
-  `dataFim` date DEFAULT NULL,
-  `timeReq` datetime DEFAULT NULL,
+  `dataInicio` datetime DEFAULT NULL,
+  `dataFim` datetime DEFAULT NULL,
   `obs` varchar(100) DEFAULT NULL,
   `anexos` varchar(45) DEFAULT NULL,
-  `status` varchar(45) DEFAULT NULL
+  `status` varchar(45) DEFAULT NULL,
+  `registroEnviado` datetime DEFAULT NULL,
+  `registroProtocolado` datetime DEFAULT NULL,
+  `registroDeferido` datetime DEFAULT NULL,
+  `registroConcluido` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -143,46 +139,48 @@ CREATE TABLE `sisadmin` (
 --
 
 INSERT INTO `sisadmin` (`idMaster`, `senha`) VALUES
-(99999, '$2y$10$FMb74xw/.8g9QajonyqVReBPTbh1S9F9GvZHdyuCfEtRj3qVhgaNu');
+(99999, '$2y$10$n5OlnutMOnwd3IvPzXe2tuZFswnSzVMN82bHQ2wF3wuhTlxX32I0q');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `adm/cores`
---
-ALTER TABLE `adm/cores`
-  ADD PRIMARY KEY (`SIAPE`),
-  ADD UNIQUE KEY `SIAPE` (`SIAPE`,`email`);
-
---
 -- Índices de tabela `aluno`
 --
 ALTER TABLE `aluno`
   ADD PRIMARY KEY (`matricula`),
-  ADD UNIQUE KEY `matricula` (`matricula`,`email`);
+  ADD UNIQUE KEY `matricula` (`matricula`,`email`),
+  ADD KEY `idCurso_idx` (`idCursos`);
 
 --
--- Índices de tabela `docentesrequerimento`
+-- Índices de tabela `coordenacao`
 --
-ALTER TABLE `docentesrequerimento`
-  ADD PRIMARY KEY (`idRequerimentos`),
-  ADD UNIQUE KEY `idRequerimentos` (`idRequerimentos`);
+ALTER TABLE `coordenacao`
+  ADD PRIMARY KEY (`SIAPE`),
+  ADD UNIQUE KEY `SIAPE` (`SIAPE`,`email`),
+  ADD KEY `coord_idx_idx` (`coord`);
 
 --
--- Índices de tabela `emailsrequerimento`
+-- Índices de tabela `curso`
 --
-ALTER TABLE `emailsrequerimento`
-  ADD PRIMARY KEY (`idRequerimentos`),
-  ADD UNIQUE KEY `idRequerimentos` (`idRequerimentos`);
+ALTER TABLE `curso`
+  ADD PRIMARY KEY (`idCurso`),
+  ADD KEY `coordenador_idx_idx` (`coordenador`);
+
+--
+-- Índices de tabela `docentes`
+--
+ALTER TABLE `docentes`
+  ADD PRIMARY KEY (`idRequerimento`);
 
 --
 -- Índices de tabela `requerimentos`
 --
 ALTER TABLE `requerimentos`
   ADD PRIMARY KEY (`idRequerimentos`),
-  ADD UNIQUE KEY `idRequerimentos` (`idRequerimentos`);
+  ADD UNIQUE KEY `idRequerimentos` (`idRequerimentos`),
+  ADD KEY `idAluno_idx` (`idAluno`);
 
 --
 -- Índices de tabela `sisadmin`
@@ -196,16 +194,28 @@ ALTER TABLE `sisadmin`
 --
 
 --
--- Restrições para tabelas `docentesrequerimento`
+-- Restrições para tabelas `coordenacao`
 --
-ALTER TABLE `docentesrequerimento`
-  ADD CONSTRAINT `idRequerimentos` FOREIGN KEY (`idRequerimentos`) REFERENCES `requerimentos` (`idRequerimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `coordenacao`
+  ADD CONSTRAINT `coord_idx` FOREIGN KEY (`coord`) REFERENCES `curso` (`idCurso`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para tabelas `emailsrequerimento`
+-- Restrições para tabelas `curso`
 --
-ALTER TABLE `emailsrequerimento`
-  ADD CONSTRAINT `idRequerimentos0` FOREIGN KEY (`idRequerimentos`) REFERENCES `requerimentos` (`idRequerimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `curso`
+  ADD CONSTRAINT `coordenador_idx` FOREIGN KEY (`coordenador`) REFERENCES `coordenacao` (`SIAPE`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Restrições para tabelas `docentes`
+--
+ALTER TABLE `docentes`
+  ADD CONSTRAINT `idRequerimento_idx` FOREIGN KEY (`idRequerimento`) REFERENCES `requerimentos` (`idRequerimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Restrições para tabelas `requerimentos`
+--
+ALTER TABLE `requerimentos`
+  ADD CONSTRAINT `idAluno_idx` FOREIGN KEY (`idAluno`) REFERENCES `aluno` (`matricula`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
