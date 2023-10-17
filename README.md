@@ -13,13 +13,13 @@ Apresentada a proposta, vamos ao tutorial de instalação do sistema:
 
 3. Importar o banco de dados no PHPMyAdmin(O arquivo SQL pode ser encontrado na pasta "burocracia" do presente repositório). 
 
-4: Na pasta XAMPP ("C:\xampp\") encontre a pasta PHP e o arquivo "PHP.ini" dentro dela;
+4. Na pasta XAMPP ("C:\xampp\") encontre a pasta PHP e o arquivo "PHP.ini" dentro dela;
 
-5: Realize a configuração do arquivo com base no arquivo homônimo presente na pasta burocracia do presente repositório (ou simplesmente substitua o arquivo caso não tenha nenhuma configuração específica diferente do padrão que você precise);
+5. Realize a configuração do arquivo com base no arquivo homônimo presente na pasta burocracia do presente repositório (ou simplesmente substitua o arquivo caso não tenha nenhuma configuração específica diferente do padrão que você precise);
 
-6: Voltando na pasta XAMPP encontre a pasta sendmail e o arquivo "sendmail.ini" dentro dela;
+6. Voltando na pasta XAMPP encontre a pasta sendmail e o arquivo "sendmail.ini" dentro dela;
 
-7: Realize a configuração do arquivo com base no arquivo homônimo presente na pasta burocracia do presente repositório (ou simplesmente substitua o arquivo caso não tenha nenhuma configuração específica diferente do padrão que você precise).
+7. Realize a configuração do arquivo com base no arquivo homônimo presente na pasta burocracia do presente repositório (ou simplesmente substitua o arquivo caso não tenha nenhuma configuração específica diferente do padrão que você precise).
 
 Tendo instalado o sistema, segue o histórico de construção das páginas e features:
 
