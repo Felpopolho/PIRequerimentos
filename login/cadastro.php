@@ -53,11 +53,12 @@
 
                 $senha = password_hash($senha, PASSWORD_DEFAULT); 
                 $email = $matricula."@ifba.edu.br";
+                $codigo = rand(100000, 999999);
 
-                $consulta = "INSERT INTO `aluno`(`matricula`, `nome`, `email`, `idCursos`, `telefone`, `senha`) VALUES ('$matricula','$nome', '$email', '$cursor', '$telefone', '$senha')";
+                $consulta = "INSERT INTO `aluno`(`matricula`, `nome`, `email`, `idCursos`, `telefone`, `senha`, `codigo`) VALUES ('$matricula','$nome', '$email', '$cursor', '$telefone', '$senha', '$codigo')";
                 banco($server, $user, $password, $db, $consulta);
                 $_SESSION['msgLogin'] = "<div class='alert alert-success' role='alert'>Cadastro realizado com sucesso!</div>";
-                header("Location: login.php");
+                header("Location: mail.php/?email=$email&matricula=$matricula");
             }   
         }
     ?>
@@ -89,7 +90,7 @@
             <input type="text" name="nome" class="input" placeholder="Nome completo"><br>
 
             Curso: <br/>
-            <select name='curso' id='curso' onchange='mudarTurma()'>
+            <select name='cursor' id='curso' onchange='mudarTurma()'>
             <option value=''>Selecione o curso</option>
             <?php
                 $consulta = "SELECT idCurso, nomeCurso FROM `curso` WHERE 1";
