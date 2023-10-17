@@ -21,4 +21,11 @@
         $banco->close();
         return $resultado;
     }
+
+    Function turnHashGlobal() {
+        global $hash;
+    }
+    Function turnEmailGlobal() {
+        global $email;
+    }
 ?>

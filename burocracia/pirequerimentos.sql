@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17/09/2023 às 22:10
+-- Tempo de geração: 17-Out-2023 às 20:14
 -- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `aluno`
+-- Estrutura da tabela `aluno`
 --
 
 CREATE TABLE `aluno` (
@@ -33,20 +33,22 @@ CREATE TABLE `aluno` (
   `email` varchar(45) NOT NULL,
   `idCursos` int(4) NOT NULL,
   `telefone` varchar(45) NOT NULL,
-  `senha` varchar(70) NOT NULL
+  `senha` varchar(70) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT 3,
+  `codigo` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Despejando dados para a tabela `aluno`
+-- Extraindo dados da tabela `aluno`
 --
 
-INSERT INTO `aluno` (`matricula`, `nome`, `email`, `idCursos`, `telefone`, `senha`) VALUES
-(202013600011, 'Felipe 1', '202013600011@ifba.edu.br', 1, '(11) 11111-1111', '$2y$10$OU422A.ysq7RuBts3bdGiOIIvmLq94U.5U0m0gLp5.Wimb2Iuo9fS');
+INSERT INTO `aluno` (`matricula`, `nome`, `email`, `idCursos`, `telefone`, `senha`, `status`, `codigo`) VALUES
+(202013600012, 'Felipe 2', '202013600012@ifba.edu.br', 1, '(22) 22222-2222', '$2y$10$L67aHGcEVsCsskj1gFjh/OXG/1Wi6SAATN95aeYBS2jPBcMOVjX6K', 1, '504078');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `coordenacao`
+-- Estrutura da tabela `coordenacao`
 --
 
 CREATE TABLE `coordenacao` (
@@ -58,7 +60,7 @@ CREATE TABLE `coordenacao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Despejando dados para a tabela `coordenacao`
+-- Extraindo dados da tabela `coordenacao`
 --
 
 INSERT INTO `coordenacao` (`SIAPE`, `nome`, `email`, `coord`, `senha`) VALUES
@@ -69,7 +71,7 @@ INSERT INTO `coordenacao` (`SIAPE`, `nome`, `email`, `coord`, `senha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `curso`
+-- Estrutura da tabela `curso`
 --
 
 CREATE TABLE `curso` (
@@ -79,7 +81,7 @@ CREATE TABLE `curso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Despejando dados para a tabela `curso`
+-- Extraindo dados da tabela `curso`
 --
 
 INSERT INTO `curso` (`idCurso`, `coordenador`, `nomeCurso`) VALUES
@@ -90,7 +92,7 @@ INSERT INTO `curso` (`idCurso`, `coordenador`, `nomeCurso`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `docentes`
+-- Estrutura da tabela `docentes`
 --
 
 CREATE TABLE `docentes` (
@@ -102,7 +104,7 @@ CREATE TABLE `docentes` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `requerimentos`
+-- Estrutura da tabela `requerimentos`
 --
 
 CREATE TABLE `requerimentos` (
@@ -124,7 +126,7 @@ CREATE TABLE `requerimentos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sisadmin`
+-- Estrutura da tabela `sisadmin`
 --
 
 CREATE TABLE `sisadmin` (
@@ -133,7 +135,7 @@ CREATE TABLE `sisadmin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Despejando dados para a tabela `sisadmin`
+-- Extraindo dados da tabela `sisadmin`
 --
 
 INSERT INTO `sisadmin` (`idMaster`, `senha`) VALUES
@@ -144,7 +146,7 @@ INSERT INTO `sisadmin` (`idMaster`, `senha`) VALUES
 --
 
 --
--- Índices de tabela `aluno`
+-- Índices para tabela `aluno`
 --
 ALTER TABLE `aluno`
   ADD PRIMARY KEY (`matricula`),
@@ -152,7 +154,7 @@ ALTER TABLE `aluno`
   ADD KEY `idCurso_idx` (`idCursos`);
 
 --
--- Índices de tabela `coordenacao`
+-- Índices para tabela `coordenacao`
 --
 ALTER TABLE `coordenacao`
   ADD PRIMARY KEY (`SIAPE`),
@@ -160,20 +162,20 @@ ALTER TABLE `coordenacao`
   ADD KEY `coord_idx_idx` (`coord`);
 
 --
--- Índices de tabela `curso`
+-- Índices para tabela `curso`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`idCurso`),
   ADD KEY `coordenador_idx_idx` (`coordenador`);
 
 --
--- Índices de tabela `docentes`
+-- Índices para tabela `docentes`
 --
 ALTER TABLE `docentes`
   ADD PRIMARY KEY (`idRequerimento`);
 
 --
--- Índices de tabela `requerimentos`
+-- Índices para tabela `requerimentos`
 --
 ALTER TABLE `requerimentos`
   ADD PRIMARY KEY (`idRequerimentos`),
@@ -181,36 +183,36 @@ ALTER TABLE `requerimentos`
   ADD KEY `idAluno_idx` (`idAluno`);
 
 --
--- Índices de tabela `sisadmin`
+-- Índices para tabela `sisadmin`
 --
 ALTER TABLE `sisadmin`
   ADD PRIMARY KEY (`idMaster`),
   ADD UNIQUE KEY `idMaster` (`idMaster`,`senha`);
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `coordenacao`
+-- Limitadores para a tabela `coordenacao`
 --
 ALTER TABLE `coordenacao`
   ADD CONSTRAINT `coord_idx` FOREIGN KEY (`coord`) REFERENCES `curso` (`idCurso`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para tabelas `curso`
+-- Limitadores para a tabela `curso`
 --
 ALTER TABLE `curso`
   ADD CONSTRAINT `coordenador_idx` FOREIGN KEY (`coordenador`) REFERENCES `coordenacao` (`SIAPE`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para tabelas `docentes`
+-- Limitadores para a tabela `docentes`
 --
 ALTER TABLE `docentes`
   ADD CONSTRAINT `idRequerimento_idx` FOREIGN KEY (`idRequerimento`) REFERENCES `requerimentos` (`idRequerimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para tabelas `requerimentos`
+-- Limitadores para a tabela `requerimentos`
 --
 ALTER TABLE `requerimentos`
   ADD CONSTRAINT `idAluno_idx` FOREIGN KEY (`idAluno`) REFERENCES `aluno` (`matricula`) ON DELETE NO ACTION ON UPDATE NO ACTION;
