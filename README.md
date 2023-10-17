@@ -9,19 +9,17 @@ Apresentada a proposta, vamos ao tutorial de instalação do sistema:
 
 1. Por estar sendo executado localmente, criar uma pasta dentro da pasta htdocs do XAMPP com o nome "pirequerimentos".
 
-2. Baixar os arquivos deste repositório e copiá-los para a pasta criada.
+2. Baixar os arquivos deste repositório e copiá-los para a pasta criada (copie apenas os arquivos, não crie uma pasta dentro de outra nem modifique a estrutura das pastas existentes).
 
 3. Importar o banco de dados no PHPMyAdmin(O arquivo SQL pode ser encontrado na pasta "burocracia" do presente repositório). 
 
-4. Configurar os arquivos PHP.ini e sendmail.ini no xampp do seu computador para permitir o envio de emails:
+4: Na pasta XAMPP ("C:\xampp\") encontre a pasta PHP e o arquivo "PHP.ini" dentro dela;
 
-  4.1: Na pasta XAMPP ("C:\xampp\") encontre a pasta PHP e o arquivo "PHP.ini" dentro dela;
+5: Realize a configuração do arquivo com base no arquivo homônimo presente na pasta burocracia do presente repositório (ou simplesmente substitua o arquivo caso não tenha nenhuma configuração específica diferente do padrão que você precise);
 
-  4.2: Realize a configuração do arquivo com base no arquivo homônimo presente na pasta burocracia do presente repositório (ou simplesmente substitua o arquivo caso não tenha nenhuma configuração específica diferente do padrão que você precise);
+6: Voltando na pasta XAMPP encontre a pasta sendmail e o arquivo "sendmail.ini" dentro dela;
 
-  4.3: Voltando na pasta XAMPP encontre a pasta sendmail e o arquivo "sendmail.ini" dentro dela;
-
-  4.4: Realize a configuração do arquivo com base no arquivo homônimo presente na pasta burocracia do presente repositório (ou simplesmente substitua o arquivo caso não tenha nenhuma configuração específica diferente do padrão que você precise).
+7: Realize a configuração do arquivo com base no arquivo homônimo presente na pasta burocracia do presente repositório (ou simplesmente substitua o arquivo caso não tenha nenhuma configuração específica diferente do padrão que você precise).
 
 Tendo instalado o sistema, segue o histórico de construção das páginas e features:
 
