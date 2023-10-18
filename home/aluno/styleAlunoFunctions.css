@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;500;600;700;800&display=swap');
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(220deg, #3E424D 0%, #A7B8CC 100%);
+    font-family: 'Sora', sans-serif;
+}
+
+/* estilização do header */
+/* ------------------------- */
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+.welcome{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.logo{
+    height: 70px;
+}
+
+.welcome h2{
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.welcome a{
+    text-decoration: none;
+}
+
+/* estilização do botão de voltar */
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: #4E7FFF;
+}
+  
+/* ícone do botão de voltar */
+.sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.sign svg {
+    width: 25px;
+}
+  
+.sign svg path {
+    fill: #FFF;
+}
+/* efeito em hover no botão de voltar */
+.Btn:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+}
+  
+/* efeito do clique no botão de voltar */
+.Btn:active {
+    transform: scale(.95);
+    background-color: #305bca;
+}
+/* ------------------------- */
+
+/* estilização do container */
+.container{
+    width: 100vw;
+    flex-wrap: wrap;
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+}
+
+/* estilização dos blocos */
+.bloco{
+    width: 900px;
+    height: 450px;
+    margin-left: 50px;
+    margin-right: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #FFF;
+}
+
+#table {
+    width: 700px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    background: #E4E4E4;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+    padding-left: 18px;
+}
+
+td {
+    border-top: 1px solid #424242;
+}
+
+/* estilização dos botões de editar e deletar */
+/* ------------------------------------------------- */
+.action-bttn{
+    cursor: pointer;
+    border-style: none;
+    background: #E4E4E4;
+}
+
+span.material-icons{
+    font-size: 28px;
+}
+/* ------------------------------------------------- */
+
+/* estilização do botão de adicionar curso */
+/* ------------------------------------------------- */
+.bttn{
+    display: flex;
+    width: 300px;
+    height: 50px;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 0px;
+    transition-duration: .3s;
+    background: linear-gradient(180deg, #5C606A 20.33%, #8d97a3 62.07%);
+    box-shadow: 0px 4px 5px 1px #00000040;
+    color: #ffffff;
+    text-align: center;
+    font-family: Sora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bttn:hover{
+    cursor: pointer;
+}
+
+.bttn:active{
+    transform: scale(0.95);
+    box-shadow: none;
+    background: linear-gradient(180deg, #3c3e44 20.33%, #5C606A 62.07%);
+}
+
+.link{
+    text-decoration: none;
+}
+/* ------------------------------------------- */
