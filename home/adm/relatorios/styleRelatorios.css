@@ -98,7 +98,8 @@ body{
     justify-content: center;
 }
 
-/* estilização dos blocos */
+/* estilização do bloco */
+/* ------------------------- */
 .bloco{
     width: 900px;
     height: 450px;
@@ -110,9 +111,12 @@ body{
     flex-direction: column;
     border-radius: 10px;
     text-align: center;
-    background-color: #FFF;
+    background-color: #ffffff;
 }
+/* ------------------------- */
 
+/* estilização da tabela */
+/* ------------------------- */
 #table {
     width: 700px;
     border-collapse: collapse;
@@ -129,6 +133,7 @@ th, td {
 td {
     border-top: 1px solid #424242;
 }
+/* ------------------------- */
 
 /* estilização dos botões de editar e deletar */
 /* ------------------------------------------------- */

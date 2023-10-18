@@ -7,7 +7,7 @@
         <title>Página Inicial</title>
         <meta name="description" id="description" 
         content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
-        <link rel="stylesheet" href="styleRelatorioCursosPage.css">
+        <link rel="stylesheet" href="styleRelatorios.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
@@ -18,7 +18,7 @@
 
                 <img class='logo' src='SAR_logo_2.png'>
                     
-                <h2>Cursos Cadastrados</h2>
+                <h2>Coordenadores Cadastrados</h2>
                         
                 <a href='../../home.php' class='Btn'>
                     <div class='sign'>
@@ -86,7 +86,7 @@
             </table>
 
             <?php
-                echo "<a href='../funcoesRelatorio/incluirCoordenador.php'><button class='bttn'>Adicionar novo coordenador</button></a>"
+                echo "<a class='link' href='../funcoesRelatorio/incluirCoordenador.php'><button class='bttn'>Adicionar novo coordenador</button></a>"
             ?>
 
         </div>

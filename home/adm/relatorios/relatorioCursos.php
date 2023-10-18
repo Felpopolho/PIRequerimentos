@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cursos Cadastrados</title>
-        <link rel="stylesheet" href="styleRelatorioCursosPage.css">
+        <link rel="stylesheet" href="styleRelatorios.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="description" id="description" 
         content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
@@ -34,7 +34,6 @@
                         </svg>
                     </div>
                 </a>
-
             </div>
         </div>
 
@@ -42,7 +41,7 @@
             <div class='bloco'>
                 <table id='table'>
                     <thead>
-                    <tr>
+                        <tr>
                             <th scope='col' onclick='sortTable(0)'>ID</th>
                             <th scope='col' onclick='sortTable(1)'>Nome</th>
                             <th scope='col' onclick='sortTable(2)'>Coordenador</th>
