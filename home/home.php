@@ -17,22 +17,23 @@
         include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
         if (isset($_SESSION['idMaster'])){
-            echo   "<div class='header'>
-                        <div class='welcome'>
-                            <img class='logo' src='ifba_logo.png'>
+            echo   "
+                <div class='header'>
+                    <div class='welcome'>
+                        <img class='logo' src='ifba_logo.png'>
 
-                            <img class='logo' src='SAR_logo_2.png'>
+                        <img class='logo' src='SAR_logo_2.png'>
+                
+                        <h2>Olá, Admin!</h2>
                     
-                            <h2>Olá, Admin!</h2>
-                        
-                            <a href='sair.php' class='Btn'>
-                                <div class='sign'>
-                                    <span class='material-symbols-outlined'>logout</span>
-                                </div>
-                            </a>
+                        <a href='sair.php' class='Btn'>
+                            <div class='sign'>
+                                <span class='material-symbols-outlined'>logout</span>
+                            </div>
+                        </a>
 
-                        </div>
                     </div>
+                </div>
 
                 <div class='container'>
                     <div class='bloco'>
@@ -103,25 +104,33 @@
                 </div>";
 
         }elseif (isset($_SESSION['matricula'])){
-            echo "<div class='titulo'>
-                    <h1>Bem vindo, Aluno!</h1>
+            echo "
+                <div class='header'>
+                    <div class='welcome'>
+                        <img class='logo' src='ifba_logo.png'>
+
+                        <img class='logo' src='SAR_logo_2.png'>
+                
+                        <h2>Olá, Aluno!</h2>
+                    
+                        <a href='sair.php' class='Btn'>
+                            <div class='sign'>
+                                <span class='material-symbols-outlined'>logout</span>
+                            </div>
+                        </a>
+
+                    </div>
                 </div>
 
-                <div class='sair'>
-                    <a href='sair.php'>Sair</a>
+                <div class='container'>
+
+                    <div class='bloco'>
+                        <a class='link' href='/pirequerimentos/home/aluno/funcoesRequerimento/novoRequerimento.php'><button class='bttn'>Novo Requerimento</button></a>
+                        <a class='link' href='/pirequerimentos/home/aluno/relatorios/requerimentosAnteriores.php'><button class='bttn'>Visualizar Requerimentos</button></a>
+                    </div>
+
                 </div>
-
-                <div class='bloco'>
-                    <div class='quantidade'>
-                        <h2>TEXTO TEXTOALUNO1</h2>
-                    </div>
-
-                    <div class='subtitulo'>
-                        <h2>TEXTO TEXTOALUNO2</h2>
-                    </div>
-
-                    <a href='relatorio'><button>Visualizar</button></a>
-                </div>";
+                ";
         }
 
     ?>

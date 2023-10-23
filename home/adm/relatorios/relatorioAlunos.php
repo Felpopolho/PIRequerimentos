@@ -7,7 +7,7 @@
         <title>Página Inicial</title>
         <meta name="description" id="description" 
         content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
-        <link rel="stylesheet" href="styleRelatorios.css">
+        <link rel="stylesheet" href="../styleAdmFunctions.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
