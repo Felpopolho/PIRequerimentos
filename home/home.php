@@ -55,6 +55,21 @@
                         <div class='quantidade'>
                             <h1>";
 
+                            // $consulta = "SELECT COUNT(idCurso) FROM `curso`";
+                            // $result = banco($server, $user, $password, $db, $consulta);
+                            echo "x";
+                            // echo $result->fetch_assoc()['COUNT(idCurso)'];
+
+                      echo "</h1>
+                        </div>
+                        <h2>Turmas Cadastradas</h2>
+                        <a class='link' href='/pirequerimentos/home/adm/relatorios/relatorioTurmas.php'><button class='bttn'>Visualizar</button></a>
+                    </div>
+
+                    <div class='bloco'>
+                        <div class='quantidade'>
+                            <h1>";
+
                             $consulta = "SELECT COUNT(SIAPE) FROM `coordenacao`";
                             $result = banco($server, $user, $password, $db, $consulta);
 
@@ -126,7 +141,7 @@
 
                     <div class='bloco'>
                         <a class='link' href='/pirequerimentos/home/aluno/funcoesRequerimento/novoRequerimento.php'><button class='bttn'>Novo Requerimento</button></a>
-                        <a class='link' href='/pirequerimentos/home/aluno/relatorios/requerimentosAnteriores.php'><button class='bttn'>Visualizar Requerimentos</button></a>
+                        <a class='link' href='/pirequerimentos/home/aluno/relatorios/relatorioRequerimentos.php'><button class='bttn'>Visualizar Requerimentos</button></a>
                     </div>
 
                 </div>

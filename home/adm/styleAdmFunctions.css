@@ -17,6 +17,10 @@ body{
     padding: 20px 20px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .welcome{
     width: 100vw;
     height: 10vh;
@@ -180,3 +184,17 @@ span.material-icons{
     text-decoration: none;
 }
 /* ------------------------------------------- */
+
+.input{
+    width: 500px;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-shrink: 0;
+    outline: 0;
+    border: 0px;
+    border-radius: 15px;
+    background: #D2D1D1;
+    font-family: Sora;
+    font-size: 15px;
+}
