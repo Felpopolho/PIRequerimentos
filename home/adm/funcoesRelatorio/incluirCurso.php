@@ -58,22 +58,19 @@
                 </form>
             </div>
         </div>
-        
+                    
+            <?php
 
-        <?php
             include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
-            extract($_POST);
 
             if(isset($addBtn)){
                 $consulta1 = "SELECT * FROM coordenacao WHERE SIAPE = '$coordenador'";
                 $result1 = banco($server, $user, $password, $db, $consulta1);
             
                 if(!isset($nome)){
-                    $_SESSION['cursoMsg'] = "Insira o nome!";
-                }elseif(!isset($cursoenador)){
-                    $_SESSION['cursoMsg'] = "Insira o SIAPE do coordenador!";
+                    $_SESSION['cursoMsg'] = "Insira o nome do curso!";
                 }elseif(!isset($coordenador)){
-                    $_SESSION['cursoMsg'] = "Insira o Coordenador!";
+                    $_SESSION['cursoMsg'] = "Insira o SIAPE do coordenador!";
                 }elseif($result1->num_rows == 0){
                     $_SESSION['cursoMsg'] = "Coordenador não encontrado, cadastre o coordenador antes de cadastrar um novo curso!";
                 }elseif(!is_numeric($coordenador)){
@@ -82,8 +79,9 @@
                     $consulta = "INSERT INTO `curso`(`coordenador`, `nomeCurso`) VALUES ('$coordenador','$nome')";
                     banco($server, $user, $password, $db, $consulta);
                     header('Location: ../relatorios/relatorioCursos.php');
-                }
+               }
             }
-        ?>
+            ?>
+        </div>    
     </body>
 </html>

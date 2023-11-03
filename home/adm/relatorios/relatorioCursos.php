@@ -34,7 +34,6 @@
                         </svg>
                     </div>
                 </a>
-
             </div>
         </div>
 
@@ -42,7 +41,7 @@
             <div class='bloco'>
                 <table id='table'>
                     <thead>
-                    <tr>
+                        <tr>
                             <th scope='col' onclick='sortTable(0)'>ID</th>
                             <th scope='col' onclick='sortTable(1)'>Nome</th>
                             <th scope='col' onclick='sortTable(2)'>Coordenador</th>

@@ -18,7 +18,7 @@
 
                 <img class='logo' src='SAR_logo_2.png'>
                     
-                <h2>Cursos Cadastrados</h2>
+                <h2>Alunos Cadastrados</h2>
                         
                 <a href='../../home.php' class='Btn'>
                     <div class='sign'>
@@ -39,58 +39,58 @@
 
         <div class='container'>
             <div class='bloco'>
-            <table id='table'>
-                <thead>
-                   <tr>
-                        <th scope='col' onclick='sortTable(0)'>Matrícula</th>
-                        <th scope='col' onclick='sortTable(1)'>Nome</th>
-                        <th scope='col' onclick='sortTable(2)'>Email</th>
-                        <th scope='col' onclick='sortTable(2)'>Curso</th>
-                        <th scope='col' onclick='sortTable(2)'>Telefone</th>
-                    </tr>
-                </thead>
+                <table id='table'>
+                    <thead>
+                        <tr>
+                            <th scope='col' onclick='sortTable(0)'>Matrícula</th>
+                            <th scope='col' onclick='sortTable(1)'>Nome</th>
+                            <th scope='col' onclick='sortTable(2)'>Email</th>
+                            <th scope='col' onclick='sortTable(2)'>Curso</th>
+                            <th scope='col' onclick='sortTable(2)'>Telefone</th>
+                        </tr>
+                    </thead>
 
-                <?php
-                    include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
+                    <?php
+                        include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
-                    $consulta = "SELECT matricula,nome,email,idCursos,telefone FROM aluno";
-                    $result = banco($server, $user, $password, $db, $consulta);
+                        $consulta = "SELECT matricula,nome,email,idCursos,telefone FROM aluno";
+                        $result = banco($server, $user, $password, $db, $consulta);
 
-                    while ($linha = $result->fetch_assoc()){
+                        while ($linha = $result->fetch_assoc()){
 
-                        $consulta2 = "SELECT nomeCurso FROM curso WHERE idCurso = $linha[idCursos]";
-                        $result2 = banco($server, $user, $password, $db, $consulta2);
+                            $consulta2 = "SELECT nomeCurso FROM curso WHERE idCurso = $linha[idCursos]";
+                            $result2 = banco($server, $user, $password, $db, $consulta2);
 
-                        echo "
-                            <tr>
-                                <td>" . $linha['matricula'] . "</td>
-                                <td>" . $linha['nome'] . "</td>
-                                <td>" . $linha['email'] . "</td>
-                                <td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>
-                                <td>" . $linha['telefone'] . "</td>
+                            echo "
+                                <tr>
+                                    <td>" . $linha['matricula'] . "</td>
+                                    <td>" . $linha['nome'] . "</td>
+                                    <td>" . $linha['email'] . "</td>
+                                    <td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>
+                                    <td>" . $linha['telefone'] . "</td>
 
-                                <td>
-                                    <form action='../funcoesRelatorio/admEditar.php' method='get'>
-                                        <input name='matricula' type='hidden' value='".$linha['matricula']."'>
-                                        <button class='action-bttn' type='submit'> <span class='material-icons md-36'>edit</span> </button>
-                                    </form>
-                                </td>
+                                    <td>
+                                        <form action='../funcoesRelatorio/admEditar.php' method='get'>
+                                            <input name='matricula' type='hidden' value='".$linha['matricula']."'>
+                                            <button class='action-bttn' type='submit'> <span class='material-icons md-36'>edit</span> </button>
+                                        </form>
+                                    </td>
 
-                                <td>
-                                    <form action='../funcoesRelatorio/admDeletar.php' method='get'>
-                                        <input name='matricula' type='hidden' value='".$linha['matricula']."'>
-                                        <input name='nome' type='hidden' value='".$linha['nome']."'>
-                                        <button class='action-bttn' type='submit'> <span class='material-icons'>delete</span> </button>
-                                    </form>
-                                </td>
-                            </tr>
-                            ";
-                        }
-                ?>
+                                    <td>
+                                        <form action='../funcoesRelatorio/admDeletar.php' method='get'>
+                                            <input name='matricula' type='hidden' value='".$linha['matricula']."'>
+                                            <input name='nome' type='hidden' value='".$linha['nome']."'>
+                                            <button class='action-bttn' type='submit'> <span class='material-icons'>delete</span> </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                ";
+                            }
+                    ?>
 
-                <script type="text/javascript" src="/PIRequerimentos/scripts/sortTable.js"></script>
-            </table>
+                    <script type="text/javascript" src="/PIRequerimentos/scripts/sortTable.js"></script>
+                </table>
+            </div>
         </div>
-
     </body>
 </html> 
