@@ -6,7 +6,16 @@ body{
     margin: 0;
     padding: 0;
     background: linear-gradient(220deg, #3E424D 0%, #A7B8CC 100%);
+    background-attachment: fixed;
     font-family: 'Sora', sans-serif;
+}
+
+/* Media Query do background para telas menores (até 768 pixels) */
+@media only screen and (max-width: 768px) {
+    body {
+        background: linear-gradient(220deg, #3E424D 0%, #A7B8CC 50%, #3E424D 100%);
+        background-attachment: fixed;
+    }
 }
 
 a{
@@ -32,8 +41,30 @@ a{
     background: #FFF;
 }
 
-.logo{
+/* Media Query do header para telas menores (até 768 pixels) */
+@media only screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .welcome h2 {
+        font-size: 18px; 
+        margin-top: 10px; 
+        padding-left: 10px; 
+    }
+}
+
+.logo {
     height: 70px;
+    max-width: 100%;
+    margin: 0 10px; 
 }
 
 .welcome h2{
@@ -88,33 +119,60 @@ a{
     transform: scale(.95);
     background-color: #c22e2e;
 }
+
+/* Media Query do botão de logout para telas menores (até 768 pixels) */
+@media only screen and (max-width: 768px) {
+    .Btn {
+        width: 40px;
+        height: 40px;
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+
+    .sign {
+        padding: 10px;
+    }
+
+    .material-symbols-outlined {
+        font-size: 20px; /* Adapte o tamanho do ícone conforme necessário */
+    }
+}
 /* ------------------------- */
 
-/* estilização do container */
-.container{
-    width: 100vw;
-    flex-wrap: nowrap;
+.container {
+    width: 100%;
+    flex-wrap: wrap;
     display: flex;
-    padding-top: 100px;
-    justify-content: space-between;
+    padding-top: 10px;
+    justify-content: space-evenly;
 }
 
-/* estilização dos blocos */
-.bloco{
+.bloco {
     width: 300px;
-    height: 40vh;
-    margin-left: 50px;
-    margin-right: 50px;
+    height: auto; 
+    margin: 20px 0; 
     align-items: center;
-    justify-content: baseline;
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
-    padding: 0 2vw;
+    padding: 20px 2vw; 
     border-radius: 10px;
     text-align: center;
     background-color: #FFF;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+}
+
+/* Media Query dos blocos para telas menores (até 768 pixels) */
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+    }
+
+    .bloco {
+        width: 80%; /* Adapte a largura conforme necessário */
+        margin: 20px 0;
+    }
 }
 
 .bloco h1{
