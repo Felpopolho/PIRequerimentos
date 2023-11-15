@@ -124,6 +124,14 @@ input[type="submit"] {
     line-height: normal;
 }
 
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+input[type="submit"]:active {
+    transform: scale(0.95);
+}
+
 p {
     margin-top: 25px;
     margin-bottom: 0px;

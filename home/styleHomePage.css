@@ -55,7 +55,7 @@ a{
     }
 
     .welcome h2 {
-        font-size: 18px; 
+        font-size: 25px; 
         margin-top: 10px; 
         padding-left: 10px; 
     }
@@ -123,18 +123,20 @@ a{
 /* Media Query do botão de logout para telas menores (até 768 pixels) */
 @media only screen and (max-width: 768px) {
     .Btn {
-        width: 40px;
-        height: 40px;
-        margin-top: 5px;
-        margin-right: 5px;
+        width: 50px;
+        height: 50px;
+        margin-top: 7px;
+        margin-right: 10px;
     }
 
     .sign {
-        padding: 10px;
+        width: 30px;
+        height: 30px;
+        padding: 12px;
     }
 
     .material-symbols-outlined {
-        font-size: 20px; /* Adapte o tamanho do ícone conforme necessário */
+        font-size: 20px; 
     }
 }
 /* ------------------------- */
@@ -143,7 +145,7 @@ a{
     width: 100%;
     flex-wrap: wrap;
     display: flex;
-    padding-top: 10px;
+    padding-top: 100px;
     justify-content: space-evenly;
 }
 
@@ -220,6 +222,32 @@ a{
 .link{
     width: 200px;
     height: 35px;
+    margin-bottom: 30px;
+}
+
+.bttn_aluno{
+    display: flex;
+    width: 300px;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 0px;
+    transition-duration: .3s;
+    background: linear-gradient(180deg, #5C606A 20.33%, #8d97a3 62.07%);
+    box-shadow: 0px 4px 5px 1px #00000040;
+    color: #ffffff;
+    text-align: center;
+    font-family: Sora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.link_aluno{
+    width: 300px;
+    height: 45px;
     margin-bottom: 30px;
 }
 /* ------------------------------------------- */
