@@ -64,7 +64,7 @@
 
                     while ($linha = $result->fetch_assoc()){
                         extract($linha);
-                        $caminho = "/../../../" . $anexos;
+                        $caminho = $anexos;
 
                         if ($objReq == 1){
                             $objeto = "Justificativa de falta";
@@ -92,12 +92,20 @@
                                 <td>" . $dataInicio . "</td>
                                 <td>" . $dataFim . "</td>
                                 <td>" . $obs . "</td>
-                                <td>" . "<a href='$caminho' target='_blank'>Atestado</a>" . "</td>
+                                <td onclick=openFile($anexos)>" . "Atestado" . "</td>
                                 <td>" . $status . "</td>
                             </tr>
                             ";
                         }
                 ?>
+
+                <script>
+                    
+                    function openFile($arquivo){
+                        window.open($arquivo);
+                    }
+
+                </script>
 
                 <script type="text/javascript" src="/PIRequerimentos/scripts/sortTable.js"></script>
             </table>
