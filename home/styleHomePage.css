@@ -5,6 +5,9 @@ body{
     height: 100vh;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: linear-gradient(220deg, #3E424D 0%, #A7B8CC 100%);
     background-attachment: fixed;
     font-family: 'Sora', sans-serif;
@@ -31,7 +34,7 @@ a{
 }
 
 .welcome{
-    width: 100vw;
+    width: 95vw;
     height: 10vh;
     display: flex;
     flex-wrap: wrap;
@@ -142,10 +145,10 @@ a{
 /* ------------------------- */
 
 .container {
-    width: 100%;
+    width: 1000px;
     flex-wrap: wrap;
     display: flex;
-    padding-top: 100px;
+    padding-top: 10px;
     justify-content: space-evenly;
 }
 
@@ -166,13 +169,14 @@ a{
 /* Media Query dos blocos para telas menores (até 768 pixels) */
 @media only screen and (max-width: 768px) {
     .container {
+        width: 100%;
         flex-direction: column;
         align-items: center;
         padding-top: 50px;
     }
 
     .bloco {
-        width: 80%; /* Adapte a largura conforme necessário */
+        width: 80%;
         margin: 20px 0;
     }
 }
@@ -225,6 +229,7 @@ a{
     margin-bottom: 30px;
 }
 
+/* Configuração dos botões da home do aluno */
 .bttn_aluno{
     display: flex;
     width: 300px;
@@ -249,5 +254,16 @@ a{
     width: 300px;
     height: 45px;
     margin-bottom: 30px;
+}
+
+.bttn_aluno:hover{
+    cursor: pointer;
+}
+
+/* efeito de clique no botão da home do aluno */
+.bttn_aluno:active{
+    transform: scale(0.95);
+    box-shadow: none;
+    background: linear-gradient(180deg, #3c3e44 20.33%, #5C606A 62.07%);
 }
 /* ------------------------------------------- */
