@@ -54,8 +54,13 @@
                 </thead>
 
                 <?php
-                    include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
                     session_start();
+                    include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
+
+                    if(!$_SESSION['matricula']){
+                        $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Nem tenta.</div>";
+                        header('Location: '.$_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/login/login.php'); #Sim, eu sei que isso dá erro, é o objetivo
+                    }
 
                     $matricula = $_SESSION['matricula'];
 

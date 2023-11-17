@@ -33,8 +33,9 @@
 
             if ($codigo == $codigobanco){
                 $consulta = "UPDATE `aluno` SET `status`= 1 WHERE matricula = $_GET[matricula]";
-                banco($server, $user, $password, $db, $consulta);
-                $_SESSION['msgLogin'] = "<div class='alert alert-success' role='alert'>Cadastro realizado com sucesso!</div>";
+                if(banco($server, $user, $password, $db, $consulta)){
+                    $_SESSION['msgLogin'] = "<div class='alert alert-success' role='alert'>Cadastro realizado com sucesso!</div>";
+                }
                 header('Location: ../login.php');
             }else{
                 $_SESSION['msgVerificar'] = "<div class='alert alert-danger' role='alert'>Código incorreto.</div>";
