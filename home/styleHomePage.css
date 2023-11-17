@@ -35,7 +35,7 @@ a{
 
 .welcome{
     width: 95vw;
-    height: 10vh;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

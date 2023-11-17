@@ -18,7 +18,7 @@
 
                 <img class='logo' src='../../SAR_logo_2.png'>
                     
-                <h2>Cursos Cadastrados</h2>
+                <h2>Requerimentos</h2>
                         
                 <a href='../../home.php' class='Btn'>
                     <div class='sign'>
