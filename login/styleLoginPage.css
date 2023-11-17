@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;500;600;700;800&display=swap');
 
-body{
+body {
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
     background: linear-gradient(220deg, #3E424D 0%, #A7B8CC 100%);
+    background-attachment: fixed;
     font-family: 'Sora', sans-serif;
 }
 
 /* estilização do header */
-.header{
+/* ------------------------- */
+.header {
     display: flex;
     justify-content: space-between;
     padding: 20px 20px;
 }
 
-.welcome{
+.welcome {
     width: 100vw;
-    height: 10vh;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -27,21 +29,48 @@ body{
     background: #ffffff;
 }
 
-.logo{
+.logo {
     height: 70px;
+    max-width: 100%;
+    margin: 0 10px; 
 }
 
-.welcome h2{
+.welcome h2 {
     margin-top: 10px;
     padding-left: 20px;
 }
 
-.container{
-    width: 650px;
-    height: 350px;
-    padding-top: 0;
-    margin-top: 90px;
-    max-width: 1200px;
+/* Media Query do header para telas menores (até 768 pixels) */
+@media only screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome {
+        margin-top: 20px;
+        width: 100%;
+        height: auto;
+    }
+
+    .welcome h2 {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .logo {
+        height: 70px;
+        max-width: 100%;
+        margin: 0 10px;
+    }
+}
+/* ------------------------- */
+
+.container {
+    width: 90%; 
+    max-width: 650px; 
+    margin: 90px auto; 
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,15 +80,17 @@ body{
     box-shadow: 0px 6px 5px 4px rgba(0, 0, 0, 0.25);
 }
 
-form{
+form {
+    width: 100%; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.input{
-    width: 500px;
+.input {
+    width: 100%; 
+    max-width: 500px; 
     height: 50px;
     padding-left: 10px;
     padding-right: 10px;
@@ -72,9 +103,9 @@ form{
     font-size: 15px;
 }
 
-input[type="submit"]{
-    display: flex;
-    width: 400px;
+input[type="submit"] {
+    width: 100%; 
+    max-width: 400px; 
     height: 45px;
     justify-content: center;
     align-items: center;
@@ -93,28 +124,34 @@ input[type="submit"]{
     line-height: normal;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     cursor: pointer;
 }
 
-input[type="submit"]:active{
-    transform: translate(0px, 2px);
-    background: linear-gradient(180deg, #3c3e44 20.33%, #5C606A 62.07%);
-    box-shadow: none;
+input[type="submit"]:active {
+    transform: scale(0.95);
 }
 
-form input::placeholder{
-    color: #464646;
-    font-family: Sora;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
-
-p{
+p {
     margin-top: 25px;
     margin-bottom: 0px;
+}
+
+.container a {
+    text-decoration: none;
+    color: #1F34EB;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .input,
+    input[type="submit"] {
+        width: 100%;
+        max-width: none;
+    }
 }
 
 .container a{

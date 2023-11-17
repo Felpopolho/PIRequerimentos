@@ -5,12 +5,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Editar</title>
+        <link rel="stylesheet" href="form.css">
         <meta name="description" id="description" 
         content="Edição de dados">
     </head>
 
     <body>
-    <?php
+<div class="container">
+    <div clas ="editar"></div>
+<?php
         session_start();
         include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
         extract($_GET);
@@ -19,6 +22,7 @@
             $consulta = "SELECT * FROM coordenacao WHERE SIAPE = $siape";
             $result = banco($server, $user, $password, $db, $consulta);
             $linha = $result->fetch_assoc();
+             
 
             echo "
                 <form action='' method='post'>
@@ -107,3 +111,5 @@
     ?>
     </body>
 </html>
+</div>
+    
