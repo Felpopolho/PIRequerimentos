@@ -20,7 +20,7 @@ body {
 
 .welcome {
     width: 100vw;
-    height: 10vh;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
