@@ -59,7 +59,7 @@
 
             <input type="hidden" name="status" value="1">
 
-            <button type="submit" name="submitButton">Enviar Requerimento</button>
+            <button type="submit" name="submitButton" class="submit_bttn">Enviar Requerimento</button>
 
         </form>
         
