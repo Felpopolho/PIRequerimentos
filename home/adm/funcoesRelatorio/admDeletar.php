@@ -5,12 +5,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Editar</title>
+        <link rel="stylesheet" href="form.css">
         <meta name="description" id="description" 
         content="Edição de dados">
     </head>
 
-    <body>       
-        <?php
+    <body>
+<div class="container">
+<?php
             session_start();
             include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
             extract($_GET);
@@ -50,5 +52,7 @@
                     }
             }
         ?>
+</div>       
+        
     </body>
 </html>
