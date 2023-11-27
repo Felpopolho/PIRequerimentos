@@ -33,7 +33,6 @@
                     }elseif(isset($nao)){
                         header('Location: ../relatorios/relatorioCursos.php');
                     }
-                
 
             }elseif(isset($matricula)){
                 echo "
@@ -49,6 +48,22 @@
                         header('Location: ../relatorios/relatorioAlunos.php');
                     }elseif(isset($nao)){
                         header('Location: ../relatorios/relatorioAlunos.php');
+                    }
+
+            }elseif(isset($id_turma)){
+                echo "
+                    <form action='' method='POST'>
+                        Confirma exclusão da turma $nome_turma?
+                        <input type='submit' name='sim' value='Sim'>
+                        <input type='submit' name='nao' value='Não'>
+                    ";
+        
+                    if(isset($sim)){
+                        $consulta = "DELETE FROM `turma` WHERE id_turma = $id_turma";
+                        banco($server, $user, $password, $db, $consulta);
+                        header('Location: ../relatorios/relatorioTurmas.php');
+                    }elseif(isset($nao)){
+                        header('Location: ../relatorios/relatorioTurmas.php');
                     }
             }
         ?>

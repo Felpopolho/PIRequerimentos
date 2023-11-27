@@ -72,18 +72,19 @@
                         break;
     
                     case (12);
+                        echo "aqui";
                         $consulta = "SELECT `matricula`, `senha`, `status` FROM `aluno` WHERE matricula='$usuario' LIMIT 1";
                         $result = banco($server, $user, $password, $db, $consulta);
                         
                         if ($result->num_rows > 0){
+                            echo "aqui";
+                            $linha = $result->fetch_assoc();
 
-                            if ($result->fetch_assoc()['status'] == 1){    
+                            if ($linha['status'] == 1){    
 
-                                $linha = $result->fetch_assoc();
-                                extract($linha);
-                                if(password_verify($userSenha, $senha)){
+                                if(password_verify($userSenha, $linha['senha'])){
                                 
-                                    $_SESSION['matricula'] = $matricula;
+                                    $_SESSION['matricula'] = $linha['matricula'];
                                     header('Location: login.php');	
                                 
                                 }else{
