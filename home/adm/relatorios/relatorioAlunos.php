@@ -67,12 +67,18 @@
                             $consulta2 = "SELECT nomeCurso FROM curso WHERE idCurso = $linha[idCursos]";
                             $result2 = banco($server, $user, $password, $db, $consulta2);
 
+                            if ($result2->num_rows > 0){
+                                $nomeCurso = $result2->fetch_assoc()['nomeCurso'];
+                            }else{
+                                $nomeCurso = "Curso não encontrado";
+                            }
+
                             echo "
                                 <tr>
                                     <td>" . $linha['matricula'] . "</td>
                                     <td>" . $linha['nome'] . "</td>
                                     <td>" . $linha['email'] . "</td>
-                                    <td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>
+                                    <td>" . $nomeCurso . "</td>
                                     <td>" . $linha['telefone'] . "</td>
 
                                     <td>
