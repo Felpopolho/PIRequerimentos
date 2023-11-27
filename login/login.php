@@ -72,19 +72,25 @@
                         break;
     
                     case (12);
-                        $consulta = "SELECT `matricula`, `senha` FROM `aluno` WHERE matricula='$usuario' LIMIT 1";
+                        $consulta = "SELECT `matricula`, `senha`, `status` FROM `aluno` WHERE matricula='$usuario' LIMIT 1";
                         $result = banco($server, $user, $password, $db, $consulta);
-
+                        
                         if ($result->num_rows > 0){
-                            $linha = $result->fetch_assoc();
-                            extract($linha);
-                            if(password_verify($userSenha, $senha)){
-                              
-                                $_SESSION['matricula'] = $matricula;
-                                header('Location: login.php');	
-                              
+
+                            if ($result->fetch_assoc()['status'] == 1){    
+
+                                $linha = $result->fetch_assoc();
+                                extract($linha);
+                                if(password_verify($userSenha, $senha)){
+                                
+                                    $_SESSION['matricula'] = $matricula;
+                                    header('Location: login.php');	
+                                
+                                }else{
+                                    $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
+                                }
                             }else{
-                                $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
+                                $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Verifique a sua conta para continuar.</div>";
                             }
                         }else{
                             $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";

@@ -49,7 +49,13 @@
                     </thead>
 
                     <?php
+                        session_start();
                         include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
+
+                        if(!$_SESSION['idMaster']){
+                            $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Nem tenta.</div>";
+                            header('Location: '.$_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/login/login.php'); #Sim, eu sei que isso dá erro, é o objetivo
+                        }
 
                         $consulta = "SELECT * FROM curso";
                         $result = banco($server, $user, $password, $db, $consulta);

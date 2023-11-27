@@ -146,6 +146,9 @@
 
                 </div>
                 ";
+        }else{
+            $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Nem tenta.</div>";
+            header('Location: ../login/login.php');
         }
 
     ?>

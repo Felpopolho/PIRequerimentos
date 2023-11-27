@@ -69,6 +69,11 @@
         extract($_POST);
         include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
+        if(!$_SESSION['matricula']){
+            $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Nem tenta.</div>";
+            header('Location: '.$_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/login/login.php'); #Sim, eu sei que isso dá erro, é o objetivo
+        }
+
         $consulta = "SELECT matricula,nome,email,idCursos,telefone FROM aluno WHERE matricula = '$_SESSION[matricula]'";
         $result = banco($server, $user, $password, $db, $consulta)->fetch_assoc();
         
@@ -125,7 +130,7 @@
                 $_SESSION['msgRequerimento'] = "Formato não suportado. Anexe um PDF!";
                 header('Location: novoRequerimento.php');
 
-            }elseif(!isset($justificativaFalta) || !isset($segundaChamada)){
+            }elseif((!isset($justificativaFalta)) and (!isset($segundaChamada))){
 
                 $_SESSION['msgRequerimento'] = "Informe o objeto do requerimento requerimento!";
                 header('Location: novoRequerimento.php');
