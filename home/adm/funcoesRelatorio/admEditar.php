@@ -86,7 +86,7 @@
                     <input name='curso' type='text' value='".$linha['idCursos']."'> <br/>
                     <input name='telefone' type='text' value='".$linha['telefone']."'> <br/>
                     <input name='editBtn' type='submit' value='Editar'>
-                    <a href='../relatorios/relatorioCursos.php'>Cancelar</a>
+                    <a href='../relatorios/relatorioAlunos.php'>Cancelar</a>
                 </form>
             ";
 
@@ -106,7 +106,30 @@
                 }
             }
 
-        }
+        }elseif(isset($id_turma)){
+            $consulta = "SELECT * FROM turma WHERE id_turma = $id_turma";
+            $result = banco($server, $user, $password, $db, $consulta);
+            $linha = $result->fetch_assoc();
+
+            echo "
+                <form action='' method='post'>
+                    <input name='idCurso' type='text' value='".$linha['id_turma']."' disabled> <br/>
+                    <input name='nome' type='text' value='".$linha['nome_turma']."'> <br/>    
+                    <input name='editBtn' type='submit' value='Editar'>
+                    <a href='../relatorios/relatorioTurmas.php'>Cancelar</a>
+                </form>
+            ";
+
+            extract($_POST);
+
+            if(isset($editBtn)){
+                    $consulta = "UPDATE turma SET nome = '$nome' WHERE id_turma = $id_turma";
+                    banco($server, $user, $password, $db, $consulta);
+                    header('Location: ../relatorios/relatorioAlunos.php');  
+                }else{
+                    echo "Curso não encontrado.";
+                }
+            }
 
     ?>
     </body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="../styleAlunoFunctionsPage.css">
+    <link rel="stylesheet" href="../styleAlunoFunctions.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>Novo Requerimento!</title>
@@ -42,26 +42,33 @@
         </div>
 
         <form action="novoRequerimento.php" method="post" enctype="multipart/form-data">
-            
-            <input type="date" name="dataInicio" class="input" placeholder="Data de início"><br>
-            <input type="date" name="dataFinal" class="input" placeholder="Data de término"><br>
-            <input type="text" name="endereco" class="input" placeholder="Endereço"><br>
-            <input type="number" name="numero" class="input" placeholder="Número"><br>
-            <input type="text" name="bairro" class="input" placeholder="Bairro"><br>
-            <input type="text" name="cidade" class="input" placeholder="Cidade"><br>
+        <input type="date" name="dataInicio" class="input" placeholder="Data de início"><br>
+        <input type="date" name="dataFinal" class="input" placeholder="Data de término"><br>
+        <input type="text" name="endereco" class="input" placeholder="Endereço"><br>
+        <input type="number" name="numero" class="input" placeholder="Número"><br>
+        <input type="text" name="bairro" class="input" placeholder="Bairro"><br>
+        <input type="text" name="cidade" class="input" placeholder="Cidade"><br>
 
-            <input type="file" name="anexo" accept=".pdf"><br>
+        <input type="file" name="anexo" accept=".pdf"><br>
 
-            <textarea name="obs" id="" cols="30" rows="10" placeholder="Observações"></textarea><br>
+        <textarea name="obs" id="" cols="30" rows="10" placeholder="Observações"></textarea><br>
 
-            <input type="checkbox" name="justificativaFalta" class="checkbox" value="jusFalta">Justificativa de Falta<br>
-            <input type="checkbox" name="segundaChamada" class="checkbox" value="segChamada">Segunda Chamada<br>
+        <div class="checkbox-group">
+        <div class="checkbox-item">
+            <input type="checkbox" name="justificativaFalta" class="checkbox" value="jusFalta" id="justificativaFalta">
+            <label for="justificativaFalta">Justificativa de Falta</label>
+        </div>
+        <div class="checkbox-item">
+            <input type="checkbox" name="segundaChamada" class="checkbox" value="segChamada" id="segundaChamada">
+            <label for="segundaChamada">Segunda Chamada</label>
+        </div>
+    </div>
 
-            <input type="hidden" name="status" value="1">
+        <input type="hidden" name="status" value="1">
 
-            <button type="submit" name="submitButton" class="submit_bttn">Enviar Requerimento</button>
+        <button type="submit" name="submitButton" class="submit_bttn">Enviar Requerimento</button>
+    </form>
 
-        </form>
         
     </div>
 

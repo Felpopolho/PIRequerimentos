@@ -55,10 +55,9 @@
                         <div class='quantidade'>
                             <h1>";
 
-                            // $consulta = "SELECT COUNT(idCurso) FROM `curso`";
-                            // $result = banco($server, $user, $password, $db, $consulta);
-                            echo "x";
-                            // echo $result->fetch_assoc()['COUNT(idCurso)'];
+                            $consulta = "SELECT COUNT(id_turma) FROM `turma`";
+                            $result = banco($server, $user, $password, $db, $consulta);
+                            echo $result->fetch_assoc()['COUNT(id_turma)'];
 
                       echo "</h1>
                         </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Coordenadores cadastrados</title>
+        <title>Alunos</title>
         <meta name="description" id="description" 
         content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
         <link rel="stylesheet" href="../styleAdmFunctions.css">
@@ -18,7 +18,7 @@
 
                 <img class='logo' src='SAR_logo_2.png'>
                     
-                <h2>Coordenadores Cadastrados</h2>
+                <h2>Turmas cadastradas</h2>
                         
                 <a href='../../home.php' class='Btn'>
                     <div class='sign'>
@@ -42,10 +42,8 @@
             <table id='table'>
                 <thead>
                    <tr>
-                        <th scope='col' onclick='sortTable(0)'>SIAPE</th>
+                        <th scope='col' onclick='sortTable(0)'>ID</th>
                         <th scope='col' onclick='sortTable(1)'>Nome</th>
-                        <th scope='col' onclick='sortTable(2)'>Email</th>
-                        <th scope='col' onclick='sortTable(2)'>Coordenação</th>
                     </tr>
                 </thead>
 
@@ -58,30 +56,31 @@
                         header('Location: '.$_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/login/login.php'); #Sim, eu sei que isso dá erro, é o objetivo
                     }
 
-                    $consulta = "SELECT SIAPE,nome,email FROM coordenacao";
+                    $consulta = "SELECT * FROM turma";
                     $result = banco($server, $user, $password, $db, $consulta);
 
                     while ($linha = $result->fetch_assoc()){
 
-                        $consulta2 = "SELECT nomeCurso FROM curso WHERE coordenador = $linha[SIAPE]";
-                        $result2 = banco($server, $user, $password, $db, $consulta2);
-
                         echo "
                             <tr>
-                                <td>" . $linha['SIAPE'] . "</td>
-                                <td>" . $linha['nome'] . "</td>
-                                <td>" . $linha['email'] . "</td>
+                                <td>" . $linha['id_turma'] . "</td>
+                                <td>" . $linha['nome_turma'] . "</td>
                                 ";
-                                
-                                if($result2->num_rows > 0){
-                                    echo "<td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>";
-                                }
 
                                 echo "
                                 <td>
                                     <form action='../funcoesRelatorio/admEditar.php' method='get'>
-                                        <input name='siape' type='hidden' value='".$linha['SIAPE']."'>
+                                        <input name='id_turma' type='hidden' value='".$linha['id_turma']."'>
+                                        <input name='nome_turma' type='hidden' value='".$linha['nome_turma']."'>
                                         <button class='action-bttn' type='submit'> <span class='material-icons md-36'>edit</span> </button>
+                                    </form>
+                                </td>
+
+                                <td>
+                                    <form action='../funcoesRelatorio/admDeletar.php' method='get'>
+                                        <input name='id_turma' type='hidden' value='".$linha['id_turma']."'>
+                                        <input name='nome_turma' type='hidden' value='".$linha['nome_turma']."'>
+                                        <button class='action-bttn' type='submit'> <span class='material-icons'>delete</span> </button>
                                     </form>
                                 </td>
                             </tr>
@@ -92,7 +91,7 @@
             </table>
 
             <?php
-                echo "<a class='link' href='../funcoesRelatorio/incluirCoordenador.php'><button class='bttn'>Adicionar novo coordenador</button></a>"
+                echo "<a class='link' href='../funcoesRelatorio/incluirTurma.php'><button class='bttn'>Adicionar nova turma</button></a>"
             ?>
 
         </div>
