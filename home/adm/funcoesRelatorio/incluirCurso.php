@@ -8,7 +8,7 @@
         <meta name="description" id="description" 
         content="Edição de dados">
 
-        <link rel="stylesheet" href="../styleAdmFunctions.css">
+        <link rel="stylesheet" href="../styleAdmFunctionsPage.css">
     </head>
 
     <body>
@@ -41,7 +41,7 @@
         <div class="container">
             <div class="bloco">
 
-                <h2>Preencha os dados do novo curso: </h2>
+                <h2>Preencha os dados do novo curso:</h2>
                 <?php
                     session_start();
                     if(isset($_SESSION['cursoMsg'])){
@@ -51,10 +51,10 @@
                 ?>
 
                 <form action="" method='POST'>
-                    <input name="nome" type="text" placeholder="Nome do curso"> <br/>
-                    <input name="coordenador" type="text" placeholder="SIAPE do Coordenador do curso"> <br/>
-                    <input name="addBtn" type="submit" value="Adicionar">
-                    <button><a href="../relatorios/relatorioCursos.php">Cancelar</a></button>
+                    <input name="nome" type="text" class="input" placeholder="Nome do curso"> <br/>
+                    <input name="coordenador" type="text" class="input" placeholder="SIAPE do Coordenador do curso"> <br/>
+                    <input name="addBtn" type="submit" class="bttn" value="Adicionar">
+                    <button class="cancel_bttn"><a href="../relatorios/relatorioCursos.php">Cancelar</a></button>
                 </form>
             </div>
         </div>
