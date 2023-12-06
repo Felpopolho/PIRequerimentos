@@ -21,7 +21,7 @@
             if(isset($idCurso)){
                 echo "
                     <form action='' method='POST'>
-                        Confirma exclusão do curso $nomeCurso?
+                        Confirmar exclusão do curso $nomeCurso?
                         <input type='submit' name='sim' value='Sim'>
                         <input type='submit' name='nao' value='Não'>
                     ";

@@ -62,10 +62,15 @@
         </div>
 
         <form action="novoRequerimento.php" method="post" enctype="multipart/form-data">
-        
-        <select name='turma' id='turma'>
-            <option value=''>Selecione a turma</option>
+            <div class="turma-select">
+                <select name='turma' id='turma' style='text-align: center;width: 250px ';>
+                    <option value=''>Selecione a turma</option>
+                    
+                
+            
 
+        
+        
             <?php
                 include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
@@ -87,7 +92,8 @@
                     echo "<option name='turma' value='$idturma'>$turma</option>";
                 }
                 ?>
-        </select> <br/>
+        </select>
+        </div> <br/>
 
         <input type="date" name="dataInicio" class="input" placeholder="Data de início"><br>
         <input type="date" name="dataFinal" class="input" placeholder="Data de término"><br>
@@ -105,7 +111,7 @@
         </div>
 
         <!-- Botão para adicionar um novo input de professor -->
-        <button type="button" onclick="adicionarInputProfessor()">Adicionar Professor</button>
+        <button type="button"   onclick="adicionarInputProfessor()">Adicionar Professor</button>
 
 
         <div class="checkbox-group">
