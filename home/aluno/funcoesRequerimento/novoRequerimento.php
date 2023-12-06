@@ -13,19 +13,37 @@
         // Função para adicionar um novo input de professor
         function adicionarInputProfessor() {
             // Cria um novo elemento de input
-            var novoInput = document.createElement("input");
-            novoInput.setAttribute("type", "text");
-            novoInput.setAttribute("name", "professores[]"); // Utiliza um array para armazenar os valores dos inputs
+
+            var nomeLabel = document.createElement("label");
+            nomeLabel.textContent = "Nome do Professor: ";
+
+            var emailLabel = document.createElement("label");
+            emailLabel.textContent = "Email do Professor: ";
+
+            var nomeProfessor = document.createElement("input");
+            nomeProfessor.setAttribute("type", "text");
+            nomeProfessor.setAttribute("name", "professores[]"); // Utiliza um array para armazenar os valores dos inputs
+
+            var emailProfessor = document.createElement("input");
+            emailProfessor.setAttribute("type", "email");
+            emailProfessor.setAttribute("name", "emails[]"); // Utiliza um array para armazenar os valores dos inputs
 
             // Cria um elemento <br> para adicionar uma quebra de linha
-            var quebraLinha = document.createElement("br");
+            var quebraLinha1 = document.createElement("br");
+            var quebraLinha2 = document.createElement("br");
+            var quebraLinha3 = document.createElement("br");
 
             // Obtém o elemento div onde os novos inputs serão adicionados
             var divProfessores = document.getElementById("divProfessores");
 
             // Adiciona o novo input e a quebra de linha à div
-            divProfessores.appendChild(novoInput);
-            divProfessores.appendChild(quebraLinha);
+            divProfessores.appendChild(nomeLabel);
+            divProfessores.appendChild(nomeProfessor);
+            divProfessores.appendChild(quebraLinha1);
+            divProfessores.appendChild(emailLabel);
+            divProfessores.appendChild(emailProfessor);
+            divProfessores.appendChild(quebraLinha2);
+            divProfessores.appendChild(quebraLinha3);
         }
     </script>
 </head>
@@ -207,11 +225,19 @@
 
                 isset($segundaChamada) ? $objeto = 2 : $objeto = 1;
                 $data = date('Y-m-d H:i:s');
-
+                
+                
                 $consulta = "INSERT INTO `requerimentos`(`idRequerimentos`,`idAluno`, `idCurso`, `id_turma`, `objReq`, `dataInicio`, `dataFim`, `obs`, `anexos`, `status`, `registroEnviado`) VALUES ('NULL','$matricula','$idCursos', '$turma','$objeto','$dataInicio','$dataFinal','$obs','$destino','$status','$data')";
-                banco($server, $user, $password, $db, $consulta);
+                $result = banco_last_id($server, $user, $password, $db, $consulta);
+                $idRequerimento = $result[1];
+                
+                for($i = 0; $i < count($professores); $i++){
+                    if(!empty($professores[$i])){
+                        $consulta = "INSERT INTO `docentes`(`idRequerimento`, `nomeDocente`, `emailDocente`) VALUES ('$idRequerimento','$professores[$i]','$emails[$i]')";
+                        banco($server, $user, $password, $db, $consulta);
+                    }
+                }
             }
-
         }
     ?>
 
