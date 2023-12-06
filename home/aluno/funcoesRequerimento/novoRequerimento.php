@@ -137,8 +137,6 @@
             </div>
         </div>
 
-        <input type="hidden" name="status" value="1">
-
         <button type="submit" name="submitButton" class="submit_bttn">Enviar Requerimento</button>
     </form>
 
@@ -227,7 +225,7 @@
                 $data = date('Y-m-d H:i:s');
                 
                 
-                $consulta = "INSERT INTO `requerimentos`(`idRequerimentos`,`idAluno`, `idCurso`, `id_turma`, `objReq`, `dataInicio`, `dataFim`, `obs`, `anexos`, `status`, `registroEnviado`) VALUES ('NULL','$matricula','$idCursos', '$turma','$objeto','$dataInicio','$dataFinal','$obs','$destino','$status','$data')";
+                $consulta = "INSERT INTO `requerimentos`(`idRequerimentos`,`idAluno`, `idCurso`, `id_turma`, `objReq`, `dataInicio`, `dataFim`, `obs`, `anexos`, `status`, `registroEnviado`) VALUES ('NULL','$matricula','$idCursos', '$turma','$objeto','$dataInicio','$dataFinal','$obs','$destino','1','$data')";
                 $result = banco_last_id($server, $user, $password, $db, $consulta);
                 $idRequerimento = $result[1];
                 

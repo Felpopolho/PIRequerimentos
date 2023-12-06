@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Página Inicial</title>
-        <link rel="stylesheet" href="styleHomePage.css">
+        <link rel="stylesheet" href="styleHome.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <meta name="description" id="description" 
         content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
@@ -156,14 +156,19 @@
 
                 <div class='bloco'>
                     <div class='quantidade'>
-                        <h2>TEXTO COORDENADOR1</h2>
+                        <h1>";
+
+                        $consulta = "SELECT COUNT(idRequerimentos) FROM `requerimentos` WHERE `status` = '1'";
+                        echo banco($server, $user, $password, $db, $consulta)->fetch_assoc()['COUNT(idRequerimentos)'];
+                        
+                        echo "</h1>
                     </div>
 
                     <div class='subtitulo'>
-                        <h2>TEXTO COORDENADOR2</h2>
+                        <h2>Requerimentos não protocolados</h2>
                     </div>
 
-                    <a href='relatorio'><button>Visualizar</button></a>
+                    <a class='link_aluno' href='/pirequerimentos/home/cores/relatorios/relatorioRequerimentos.php'><button class='bttn_aluno'>Visualizar Requerimentos</button></a>
                 </div>";
 
         }else{
