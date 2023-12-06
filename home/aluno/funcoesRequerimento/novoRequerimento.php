@@ -8,6 +8,26 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>Novo Requerimento!</title>
+
+    <script>
+        // Função para adicionar um novo input de professor
+        function adicionarInputProfessor() {
+            // Cria um novo elemento de input
+            var novoInput = document.createElement("input");
+            novoInput.setAttribute("type", "text");
+            novoInput.setAttribute("name", "professores[]"); // Utiliza um array para armazenar os valores dos inputs
+
+            // Cria um elemento <br> para adicionar uma quebra de linha
+            var quebraLinha = document.createElement("br");
+
+            // Obtém o elemento div onde os novos inputs serão adicionados
+            var divProfessores = document.getElementById("divProfessores");
+
+            // Adiciona o novo input e a quebra de linha à div
+            divProfessores.appendChild(novoInput);
+            divProfessores.appendChild(quebraLinha);
+        }
+    </script>
 </head>
 <body>  
     
@@ -42,6 +62,33 @@
         </div>
 
         <form action="novoRequerimento.php" method="post" enctype="multipart/form-data">
+        
+        <select name='turma' id='turma'>
+            <option value=''>Selecione a turma</option>
+
+            <?php
+                include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
+
+                $consulta = "SELECT idCursos FROM aluno WHERE matricula = '$_SESSION[matricula]'";
+                $result = banco($server, $user, $password, $db, $consulta)->fetch_assoc();
+                $idCurso = $result['idCursos'];
+
+                $consulta = "SELECT id_turma, nome_turma FROM `turma` WHERE id_curso = '$idCurso'";
+                $result = banco($server, $user, $password, $db, $consulta);
+                $qtdTurmas = $result->num_rows;
+
+                for ($i=0; $i < $qtdTurmas; $i++) { 
+                    $linha = $result->fetch_assoc();
+                    $idTurma = $linha['id_turma'];
+                    $Turma = $linha['nome_turma'];
+                    $idturma = $idTurma;
+                    $turma = $Turma;
+
+                    echo "<option name='turma' value='$idturma'>$turma</option>";
+                }
+                ?>
+        </select> <br/>
+
         <input type="date" name="dataInicio" class="input" placeholder="Data de início"><br>
         <input type="date" name="dataFinal" class="input" placeholder="Data de término"><br>
         <input type="text" name="endereco" class="input" placeholder="Endereço"><br>
@@ -53,16 +100,24 @@
 
         <textarea name="obs" id="" cols="30" rows="10" placeholder="Observações"></textarea><br>
 
+        <div id="divProfessores">
+            <!-- Inputs de professores serão adicionados aqui -->
+        </div>
+
+        <!-- Botão para adicionar um novo input de professor -->
+        <button type="button" onclick="adicionarInputProfessor()">Adicionar Professor</button>
+
+
         <div class="checkbox-group">
-        <div class="checkbox-item">
-            <input type="checkbox" name="justificativaFalta" class="checkbox" value="jusFalta" id="justificativaFalta">
-            <label for="justificativaFalta">Justificativa de Falta</label>
+            <div class="checkbox-item">
+                <input type="checkbox" name="justificativaFalta" class="checkbox" value="jusFalta" id="justificativaFalta">
+                <label for="justificativaFalta">Justificativa de Falta</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" name="segundaChamada" class="checkbox" value="segChamada" id="segundaChamada">
+                <label for="segundaChamada">Segunda Chamada</label>
+            </div>
         </div>
-        <div class="checkbox-item">
-            <input type="checkbox" name="segundaChamada" class="checkbox" value="segChamada" id="segundaChamada">
-            <label for="segundaChamada">Segunda Chamada</label>
-        </div>
-    </div>
 
         <input type="hidden" name="status" value="1">
 
@@ -74,7 +129,6 @@
 
     <?php
         extract($_POST);
-        include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
         if(!$_SESSION['matricula']){
             $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Nem tenta.</div>";
@@ -154,7 +208,7 @@
                 isset($segundaChamada) ? $objeto = 2 : $objeto = 1;
                 $data = date('Y-m-d H:i:s');
 
-                $consulta = "INSERT INTO `requerimentos`(`idRequerimentos`,`idAluno`, `idCurso`, `objReq`, `dataInicio`, `dataFim`, `obs`, `anexos`, `status`, `registroEnviado`) VALUES ('NULL','$matricula','$idCursos','$objeto','$dataInicio','$dataFinal','$obs','$destino','$status','$data')";
+                $consulta = "INSERT INTO `requerimentos`(`idRequerimentos`,`idAluno`, `idCurso`, `id_turma`, `objReq`, `dataInicio`, `dataFim`, `obs`, `anexos`, `status`, `registroEnviado`) VALUES ('NULL','$matricula','$idCursos', '$turma','$objeto','$dataInicio','$dataFinal','$obs','$destino','$status','$data')";
                 banco($server, $user, $password, $db, $consulta);
             }
 

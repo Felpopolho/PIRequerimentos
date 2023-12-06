@@ -80,12 +80,10 @@
                         break;
     
                     case (12);
-                        echo "aqui";
                         $consulta = "SELECT `matricula`, `senha`, `status` FROM `aluno` WHERE matricula='$usuario' LIMIT 1";
                         $result = banco($server, $user, $password, $db, $consulta);
                         
                         if ($result->num_rows > 0){
-                            echo "aqui";
                             $linha = $result->fetch_assoc();
 
                             if ($linha['status'] == 1){    

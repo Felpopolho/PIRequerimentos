@@ -62,16 +62,22 @@
 
                         while ($linha = $result->fetch_assoc()){
 
-                            $consulta2 = "SELECT nome FROM coordenacao WHERE SIAPE = $linha[coordenador]";
+                            $siape = $linha['coordenador'];
+                            $consulta2 = "SELECT `nome` FROM coordenacao WHERE SIAPE = '$siape'";
                             $result2 = banco($server, $user, $password, $db, $consulta2);
 
                             echo "
                                 <tr>
                                     <td>" . $linha['idCurso'] . "</td>
-                                    <td>" . $linha['nomeCurso'] . "</td>
-                                    <td>" . $result2->fetch_assoc()['nome'] . "</td>
+                                    <td>" . $linha['nomeCurso'] . "</td>";
+
+                                    if ($result2->num_rows == 0){
+                                        echo "<td>Coordenador não cadastrado</td>";
+                                    } else {
+                                        echo "<td>" . $result2->fetch_assoc()['nome'] . "</td>";
+                                    };
                                     
-                                    <td>
+                                    echo "<td>
                                     <form action='../funcoesRelatorio/admEditar.php' method='get'>
                                         <input name='idCurso' type='hidden' value='".$linha['idCurso']."'>
                                         <button class='action-bttn' type='submit'> <span class='material-icons md-36'>edit</span> </button>
