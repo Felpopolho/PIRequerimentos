@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" id="description" 
         content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
-        <link rel="stylesheet" href="../styleAlunoFunctionsPage.css">
+        <link rel="stylesheet" href="styleAlunoFunctions.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Requerimentos enviados</title>

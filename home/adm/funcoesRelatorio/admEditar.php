@@ -25,15 +25,17 @@
              
 
             echo "
-                <form action='' method='post'>
-                    <input name='siape' type='text' value='".$linha['SIAPE']."' disabled> <br/>
-                    <input name='nome' type='text' value='".$linha['nome']."'> <br/>    
-                    <input name='email' type='text' value='".$linha['email']."'> <br/>
-                    <input name='editBtn' type='submit' value='Editar'>
-                    <a href='../relatorios/relatorioCoordenadores.php'>Cancelar</a>
-                </form>
+                <div class='edi'>
+                    <form action='' method='post'>
+                        <input name='siape' type='text' value='".$linha['SIAPE']."' disabled> <br/>
+                        <input name='nome' type='text' value='".$linha['nome']."'> <br/>    
+                        <input name='email' type='text' value='".$linha['email']."'> <br/>
+                        <input name='editBtn' type='submit' value='Editar'>
+                        <a href='../relatorios/relatorioCoordenadores.php'>Cancelar</a>
+                    </form>
+                </div>
             ";
-            
+
             extract($_POST);
 
             if(isset($editBtn)){

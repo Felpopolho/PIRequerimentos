@@ -80,10 +80,15 @@
         </div>
 
         <form action="novoRequerimento.php" method="post" enctype="multipart/form-data">
-        
-        <select name='turma' id='turma'>
-            <option value=''>Selecione a turma</option>
+            <div class="turma-select">
+                <select name='turma' id='turma' style='text-align: center;width: 250px ';>
+                    <option value=''>Selecione a turma</option>
+                    
+                
+            
 
+        
+        
             <?php
                 include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
@@ -105,7 +110,8 @@
                     echo "<option name='turma' value='$idturma'>$turma</option>";
                 }
                 ?>
-        </select> <br/>
+        </select>
+        </div> <br/>
 
         <input type="date" name="dataInicio" class="input" placeholder="Data de início"><br>
         <input type="date" name="dataFinal" class="input" placeholder="Data de término"><br>
@@ -123,7 +129,9 @@
         </div>
 
         <!-- Botão para adicionar um novo input de professor -->
-        <button type="button" onclick="adicionarInputProfessor()">Adicionar Professor</button>
+        <button type="button"   style ='width: 250px;height: 40px;margin-top: 30px;margin-bottom: 20px;border: none;border-radius: 10px;background: linear-gradient(180deg, #5C606A 20.33%, #8d97a3 62.07%);
+        box-shadow: 0px 4px 5px 1px #00000040;color: #FFF;transition-duration: .3s;font-family: Sora;
+        font-size: 18px;cursor: pointer;                                      'onclick="adicionarInputProfessor()">Adicionar Professor</button>
 
 
         <div class="checkbox-group">
