@@ -129,7 +129,9 @@
         </div>
 
         <!-- Botão para adicionar um novo input de professor -->
-        <button type="button"   onclick="adicionarInputProfessor()">Adicionar Professor</button>
+        <button type="button"   style ='width: 250px;height: 40px;margin-top: 30px;margin-bottom: 20px;border: none;border-radius: 10px;background: linear-gradient(180deg, #5C606A 20.33%, #8d97a3 62.07%);
+        box-shadow: 0px 4px 5px 1px #00000040;color: #FFF;transition-duration: .3s;font-family: Sora;
+        font-size: 18px;cursor: pointer;                                      'onclick="adicionarInputProfessor()">Adicionar Professor</button>
 
 
         <div class="checkbox-group">
