@@ -24,6 +24,8 @@
             header('Location: ../home/home.php');
         }elseif (isset($_SESSION['matricula'])){
             header('Location: ../home/home.php');
+        }elseif (isset($_SESSION['SIAPEcores'])){
+            header('Location: ../home/home.php');
         }
 
         if (isset($botaoLogin)){
@@ -54,15 +56,21 @@
                         
     
                     case (7);
-                        $consulta = "SELECT `SIAPE`, `senha` FROM `coordenacao` WHERE SIAPE='$usuario' LIMIT 1";
+                        $consulta = "SELECT `SIAPE`, `senha`, `coord` FROM `coordenacao` WHERE SIAPE='$usuario' LIMIT 1";
                         $result = banco($server, $user, $password, $db, $consulta);
 
                         if ($result->num_rows > 0){
                             $linha = $result->fetch_assoc();
                             extract($linha);
                             if(password_verify($userSenha, $senha)){
-                                $_SESSION['SIAPE'] = $SIAPE;	
-                                header('Location: login.php');
+
+                                if($coord == 0){
+                                    $_SESSION['SIAPEcores'] = $SIAPE;
+                                    header('Location: login.php');
+                                }else{
+                                    $_SESSION['SIAPE'] = $SIAPE;
+                                    header('Location: login.php');
+                                }
                             }else{
                                 $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Usuário ou senha incorretos.</div>";
                             }

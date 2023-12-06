@@ -56,6 +56,7 @@
                     <input name="email" type="text" placeholder="Email"> <br/>
                     <input name="senha" type="password" placeholder="Senha"> <br/>
                     <input name="resenha" type="password" placeholder="Confirmar senha"> <br/>
+                    <input type="checkbox" name="isCores"> <Label>É um servidor da CORES?</Label> <br/>
                     <input name="addBtn" type="submit" value="Adicionar">
                     <button><a href="../relatorios/relatorioCoordenadores.php">Cancelar</a></button>
                 </form>
@@ -81,14 +82,17 @@
                 }elseif(!$senha == $resenha){
                     $_SESSION['coordMsg'] = "As senhas não coincidem!";
                 }else{
-                    $consulta = "INSERT INTO `coordenacao`(`SIAPE`, `nome`, `email`, `senha`) VALUES ('$siape','$nome','$email','password_hash($senha, PASSWORD_DEFAULT)')";
-                    try{
+                    $senha = password_hash($senha, PASSWORD_DEFAULT);
+                    if(isset($isCores) && $isCores == true){
+                        $consulta = "INSERT INTO `coordenacao`(`SIAPE`, `nome`, `email`, `senha`, `coord`) VALUES ('$siape','$nome','$email','$senha', '0')";
                         banco($server, $user, $password, $db, $consulta);
-                    }catch(Exception $e){
-                        $_SESSION['coordMsg'] = "Erro ao cadastrar coordenador!";
-                    }
-                    header('Location: ../relatorios/relatorioCoordenadores.php');
+                    }else{
+                        $consulta = "INSERT INTO `coordenacao`(`SIAPE`, `nome`, `email`, `senha`) VALUES ('$siape','$nome','$email','$senha')";
+                        banco($server, $user, $password, $db, $consulta);
+                    }   
+                    
                 }
+                header("Location: ../relatorios/relatorioCoordenadores.php");
             }
         ?>
     </body>

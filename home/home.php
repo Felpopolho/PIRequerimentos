@@ -145,6 +145,27 @@
 
                 </div>
                 ";
+        }elseif (isset($_SESSION['SIAPEcores'])){
+            echo "<div class='titulo'>
+                    <h1>Bem vindo, CORES!</h1>
+                </div>
+
+                <div class='sair'>
+                    <a href='sair.php'>Sair</a>
+                </div>
+
+                <div class='bloco'>
+                    <div class='quantidade'>
+                        <h2>TEXTO COORDENADOR1</h2>
+                    </div>
+
+                    <div class='subtitulo'>
+                        <h2>TEXTO COORDENADOR2</h2>
+                    </div>
+
+                    <a href='relatorio'><button>Visualizar</button></a>
+                </div>";
+
         }else{
             $_SESSION['msgLogin'] = "<div class='alert alert-danger' role='alert'>Nem tenta.</div>";
             header('Location: ../login/login.php');

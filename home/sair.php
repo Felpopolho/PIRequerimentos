@@ -7,6 +7,8 @@
         unset($_SESSION['SIAPE']);
     }elseif(isset($_SESSION['matricula'])){
         unset($_SESSION['matricula']);
+    }elseif(isset($_SESSION['SIAPEcores'])){
+        unset($_SESSION['SIAPEcores']);
     }
     header('Location: ../login/login.php');
 ?>  

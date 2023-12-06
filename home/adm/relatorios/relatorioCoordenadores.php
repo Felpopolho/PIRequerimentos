@@ -75,6 +75,8 @@
                                 
                                 if($result2->num_rows > 0){
                                     echo "<td>" . $result2->fetch_assoc()['nomeCurso'] . "</td>";
+                                }else{
+                                    echo "<td> CORES </td>";
                                 }
 
                                 echo "

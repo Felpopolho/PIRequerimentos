@@ -51,6 +51,30 @@
 
                 <form action="" method='POST'>
                     <h2>Preencha os dados da nova turma:</h2>
+                    <label for="curso">Curso: </label><br>
+                    <select name='curso' id='curso''>
+                        <option value=''>Selecione o curso</option>
+
+                        <?php
+                            include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
+
+                            $consulta = "SELECT idCurso, nomeCurso FROM `curso` WHERE 1";
+                            $result = banco($server, $user, $password, $db, $consulta);
+                            $qtdCursos = $result->num_rows;
+
+                            for ($i=0; $i < $qtdCursos; $i++) { 
+                                $linha = $result->fetch_assoc();
+                                $idCurso = $linha['idCurso'];
+                                $Curso = $linha['nomeCurso'];
+                                $idcurso = $idCurso;
+                                $curso = $Curso;
+
+                                echo "<option name='curso' value='$idcurso'>$curso</option>";
+                            }
+                            ?>
+
+                    </select> <br/>
+
                     <input name="nome" type="text" placeholder="Nome"> <br/>
                     <input name="addBtn" type="submit" value="Adicionar">
                     <button><a href="../relatorios/relatorioTurmas.php">Cancelar</a></button>
@@ -59,17 +83,16 @@
             </div>
         </div>
 
-        
 
-        <?php
-            include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
+
+<?php
             extract($_POST);
-
+            
             if(isset($addBtn)){
                 if(!isset($nome)){
                     $_SESSION['coordMsg'] = "Insira o nome!";
                 }else{
-                    $consulta = "INSERT INTO `turma`(`nome_turma`) VALUES ('$nome')";
+                    $consulta = "INSERT INTO `turma`(`id_curso`, `nome_turma`) VALUES ('$curso', '$nome')";
                     banco($server, $user, $password, $db, $consulta);
                     header('Location: ../relatorios/relatorioTurmas.php');
                 }
