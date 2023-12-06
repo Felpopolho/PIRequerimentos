@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" id="description" 
         content="Bem-vindo! Sistema integrado de requerimentos estudantis do IFBA Campus Eunápolis">
-        <title>Requerimentos não protocolados</title>
+        <title>Requerimentos protocolados</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
 
@@ -42,6 +42,7 @@
                             <th scope='col' onclick='sortTable(8)'>Anexo</th>
                             <th scope='col' onclick='sortTable(9)'>Status</th>
                             <th scope='col' onclick='sortTable(10)'>Data de Envio</th>
+                            <th scope='col' onclick='sortTable(11)'>Data de Protocolização</th>
                         </tr>
                     </thead>
 
@@ -49,11 +50,11 @@
                         session_start();
                         include $_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/const.php';
 
-                        if(!$_SESSION['SIAPEcores']){
+                        if(!$_SESSION['SIAPE']){
                             header('Location: '.$_SERVER['DOCUMENT_ROOT'].'/PIRequerimentos/login/login.php'); #Sim, eu sei que isso dá erro, é o objetivo
                         }
 
-                        $consulta = "SELECT * FROM `requerimentos` WHERE `status`='1'";
+                        $consulta = "SELECT * FROM `requerimentos` WHERE `status`='2'";
                         $result = banco($server, $user, $password, $db, $consulta);
 
                         while ($linha = $result->fetch_assoc()){
@@ -78,12 +79,20 @@
                                 $status = "Concluído";
                             }
 
+                            $consulta = "SELECT nomeCurso FROM `curso` WHERE `idCurso`='$idCurso'";
+                            $curso = banco($server, $user, $password, $db, $consulta);
+                            $curso = $curso->fetch_assoc();
+
+                            $consulta = "SELECT nome_turma FROM `turma` WHERE `id_turma`='$id_turma'";
+                            $turma = banco($server, $user, $password, $db, $consulta);
+                            $turma = $turma->fetch_assoc();
+
                             echo "
                                 <tr>
                                     <td>" . $idRequerimentos . "</td>
                                     <td>" . $idAluno . "</td>
-                                    <td>" . $idCurso . "</td>
-                                    <td>" . $id_turma . "</td>
+                                    <td>" . $curso['nomeCurso'] . "</td>
+                                    <td>" . $turma['nome_turma'] . "</td>
                                     <td>" . $objeto . "</td>
                                     <td>" . $dataInicio . "</td>
                                     <td>" . $dataFim . "</td>
@@ -91,12 +100,19 @@
                                     <td><a href='$anexos'>" . "Atestado" . "</a></td>
                                     <td>" . $status . "</td>
                                     <td>" . $registroEnviado . "</td>
+                                    <td>" . $registroProtocolado . "</td>
 
                                     <td>
-                                        <form action='../funcoesRelatorio/protocolarRequerimento.php' method='GET'>
-                                        <input name='idRequerimento' type='hidden' value='".$idRequerimentos."'>
+                                        <form action='../funcoesRelatorio/deferirRequerimento.php' method='GET'>
+                                            <input name='idRequerimento' type='hidden' value='".$idRequerimentos."'>
 
-                                        <button class='action-bttn' type='submit'> <span class='material-icons'>Protocolar</span> </button>
+                                            <button class='action-bttn' type='submit'> <span class='material-icons'>Deferir</span> </button>
+                                        </form>
+
+                                        <form action='../funcoesRelatorio/indeferirRequerimento.php' method='GET'>
+                                            <input name='idRequerimento' type='hidden' value='".$idRequerimentos."'>
+
+                                            <button class='action-bttn' type='submit'> <span class='material-icons'>Indeferir</span> </button>
                                         </form>
                                     </td>
                                 </tr>
